@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Welcome</title>
+
+
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs-rtl.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="master.css" media="all" />
+        <<link rel="stylesheet" type="text/css" href="importantcss.css">
+
+        <script src="importantjs.js"></script>
+        <script src="ac.js"></script>
+        <script src="core.js"></script>
+        <script src="jquery-latest.min.js"></script>
+        <script src="jquery-ui-latest.custom.min.js"></script>
+        <script src="intro.min.js"></script>
+        <script src="default.js"></script>
+        <script src="default2.js"></script>
+
+        <script type="text/javascript">
+            var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/dic/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Financial Aid Form - طلب المساعدات المالية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'Administrative Positions for Academic Year 2018/2019 - المناصب الإدارية للعام 2018/2019', value: '/official-positions/'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Health Insurance Instructions - تعليمات التأمين الصحي', value: '/hrm/forms/forms/insurance-instructions-2018.pdf'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2016/'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};menuList[menuList.length] = {label: 'Health Insurance List - الأطباء والمراكز المعتمدين في التأمين الصحي', value: '/hrm/forms/forms/health-insurance-list-2018.pdf'};menuList[menuList.length] = {label: 'The Academic Calendar for 2019/2020 - التقويم الأكاديمي للعام 2020/2019', value: '/calendar/registration/public-academic-2019-2020'};
+        </script>
+
+
+    </head>
+    <body dir="rtl" class="rtl" >
+
+            <div class="master-header" dir="rtl">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="print-header">
+                            <br/>
+                            غازي حسن |
+                            June 18, 2020 19:39 | 93.175.11.224
+                        </div>
+                    </div>
+                    <div class="user-area">
+
+                            <ul class="user-menu" data-step="1" data-intro="روابط المستخدم">
+                                <li>
+                                    <a data-load-part="chats" href="/chat/">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-comments-o fa-2x"></i>
+                                        <div class="menu-title">محادثة</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">اشعارات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">اعلانات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">رسائل</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i onclick="myFunction()" class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">حسابي</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator"></i>
+                                </li>
+                            </ul>
+
+                            <div class="dropdown">
+                            <div id="myDropdown" class="dropdown-content" style="top: 42px;">
+                              <table dir="rtl">
+                                <tbody><tr>
+                                    <td colspan="2" class="dates">
+                                        التاريخ الحالي: June 18, 2020 20:28
+                                        <br>
+                                        <a href="/verify">آخر تسجيل دخول: June     18, 2020 16:38</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img class="user-img" src="/user-image?1173056">
+                                    </td>
+                                    <td>
+                                        <b>غازي حسن</b>
+                                        <br>
+                                        1173078
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr>
+                                        <a class="logout" href="/register/logout">خروج</a>
+                                        <a class="account_settings" href="/users/">إعدادات الحساب</a>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                          </div>
+                          </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+
+                        <div class="search-form">
+
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="rtl" placeholder="ابدأ بالكتابة للبحث في القوائم"  data-step="4" data-intro="بحث عن روابط رتاج"/>
+
+                        </div>
+
+                </div>
+            </div>
+
+        <div id="slave" style="clear:both;" data-step="3" data-intro="روابط وصفحات الصناديق الرئيسية">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   أنت تستخدم متصفح <strong>غير مدعوم</strong>  <br /> نرجو <a target='_blank' href='http://browsehappy.com/'> تحديث المتصفح </a> من أجل استخدام أفضل لريتاج.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+
+
+<script language="JavaScript">
+
+	$(document).ready(function() {
+		$(".show_hide_courses").click(function() {
+		    $(this).find('b').toggle();
+		    $(this).next().slideToggle();
+		});
+	});
+</script>
+
+<table border=0 cellspacing=1 cellpadding=4 width="100%" dir=rtl>
+	<tr valign="top">
+		<td width="25%">
+
+				<table id="courses_t" width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px; display:none;' dir=rtl>
+					<tr bgcolor="#d5ddc6">
+						<td><b>المساقات</b></td>
+					</tr>
+				</table>
+				<table id="courses" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0; display:none;' dir=rtl>
+					<tr>
+						<td>
+
+    							الفصل الحالي / <a href="#" class="show_hide_courses"><b>إخفاء</b><b style="display:none;">إظهار</b></a>
+    							<div class="courses_list">
+    								<ul>
+    									<li><a href='aliabdo.html'>ENEE2301 / شعبة 1 / Ali Abdo <span style='color:red'><b>(12)</b></span></a></li><li><a href='afifakel.html'>ENME335 / شعبة 1 / Afif Akel <span style='color:red'><b>(3)</b></span></a></li>
+    								</ul>
+    							</div>
+
+						</td>
+					</tr>
+				</table>
+				<script>
+					ById('courses_t').style.display = (ClBr() == 'IE' ? 'block' : 'table');
+					ById('courses').style.display = (ClBr() == 'IE' ? 'block' : 'table');
+				</script>
+				<br />
+
+
+			<table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">إداري</td></tr>  </table>  <table id="109" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="transferConditions.html">شروط التحويل بين الكليات</a></td></tr><tr valign="middle"><td><a href="complaints.html">شكاوى واقتراحات</a></td></tr><tr valign="middle"><td><a href="workdays.html">مواعيد دوام واستراحة الدوائر في الجامعة</a></td></tr></table><div style="padding:5px;" dir=rtl></div><table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">الملف الشخصي</td></tr>  </table>  <table id="115" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="eduroam.html">Eduroam شبكة</a></td></tr><tr valign="middle"><td><a href="users.html">الإعدادات الشخصية</a></td></tr><tr valign="middle"><td><a href="library.html">الاستعارة من المكتبة</a></td></tr><tr valign="middle"><td><a href="appointments.html">حجز المواعيد (الساعات المكتبية،العيادات...)</a></td></tr><tr valign="middle"><td><a href="contact-info.html">معلومات الإتصال</a></td></tr></table><div style="padding:5px;" dir=rtl></div><table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">طلبات الدعم</td></tr>  </table>  <table id="764" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="medical.html">مركز المعلومات الدوائية</a></td></tr></table><div style="padding:5px;" dir=rtl></div><table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">مالي</td></tr>  </table>  <table id="104" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="list-brother-scholarship.html"><b>منحة الأخوة</b> - <blink>جديد</blink></a></td></tr></table><div style="padding:5px;" dir=rtl></div><table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">مهام إدارية</td></tr>  </table>  <table id="5768" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="recommendation.html">طلب توصية</a></td></tr></table><div style="padding:5px;" dir=rtl></div>
+		</td>
+
+		<!-- Centeral Space -->
+		<td width="50%">
+
+		      <!--
+
+                    <center>
+                        <b>
+                            <blink><font color="red"><p style='text-decoration: blink'>نرجو فحص معلومات التواصل معك ثم تأكيدها أو تعديلها.</p></font></blink><br/>
+                            <script type="text/javascript">
+    $(function() {
+        $("table#template_data_table tr").hover (
+            function () {
+                $(this).addClass("highlight-row");
+            }, function() {
+                $(this).removeClass("highlight-row");
+            }
+        )
+    });
+</script>
+
+<table id="template_data_table" class="list"
+	cellpadding="3" cellspacing="1" align="center">
+<tbody>
+
+    <tr class="list-header">
+
+        <th class="list">
+
+            &nbsp;
+
+        </th>
+
+        <th class="list">
+
+
+
+        </th>
+
+        <th class="list">
+
+
+
+        </th>
+
+    </tr>
+
+
+
+        <tr id="TR@student_contacts.@"
+		class="list-odd last">
+
+              <td class="list">
+                جوال
+              </td>
+
+              <td class="list">
+
+                     - 0599708879
+
+              </td>
+
+              <td class="list">
+
+                    <a href="/person-maintained/contact-info/?pci_id=163441&action=confirm&return_url=/">تأكيد</a>
+                    &nbsp; | &nbsp;
+                    <a href="/person-maintained/contact-info/?pci_id=163441&info_type=140">تعديل</a>
+
+              </td>
+
+          </tr>
+
+
+</tbody>
+</table>
+                        </b>
+                    </center>
+                    <br />
+
+                 -->
+
+
+				<br />
+
+
+					<center dir="rtl">
+
+                        <img src="shades_smile.gif" />
+                        <a href="/reg/?term=1194"><b>التسجيل للدورة الصيفية الثانية 2019/2020</b></a>
+                        <img src="shades_smile.gif" />
+                        <br/>
+                        <br/>
+                        <p class="red" style="font-weight: bold;font-size: 1.5em;">
+                              تعتبر رسوم التسجيل مستحقة حال قيام الطالب (بكالوريوس أو دراسات عليا) بعمل حركة التسجيل
+                              حتى لو لم يُستكمل التسجيل أو الدراسة في الفصل / الدورة الصيفية لاحقا، وبالتالي فهذه الرسوم غير مستردة
+
+                              .
+                        </p>
+                        <br/>
+                        <br/>
+					</center>
+
+
+			<table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>
+				<tr bgcolor="#d5ddc6"><td><b>التنبيهات</b></td></tr>
+			</table>
+			<table width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl>
+				<tr>
+					<td>
+
+                            <div dir="rtl" style="font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;" class="wbr">
+                                <h3><a href='/hemis-admin/notifications/view-notification?notif_id=203436'>التعلم والتعليم والتقويم من خلال الانترنت في ظل جائحة الكورونا من وجهة نظر الطلبة في جامعة بيرزيت</a><br/><hr/></h3><p style="text-align: center;"><span style="font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp; لتغيير كلمة المرور حساب رتاج خلال فترة الطوارئ بإمكانكم الاتصال على الرقم (2982012 - <span style="font-size: 14pt;">02</span>) خلال فترة الدوام الرسمي من الساعة 8 صباحا الى 4 عصرا</span></p><hr/><p dir="rtl" style="text-align: right;"><span style="font-size: 14pt;">ملف تعريفي للطلبة عن كيفية استخدام نظام&nbsp; التعليم الالكتروني&nbsp; ITC&nbsp;<a href="../../downloads/lms/elearning_stuents.pdf" target="_blank"> (رابط الملف) </a></span></p><hr/><p style="text-align: center;"><strong><a href="../../be1/en/student/gcr-clearance/">تقديم طلب انسحاب من الجامعة</a></strong></p><hr/>
+                            </div>
+
+						        <ul>
+
+
+									</ul>
+						        </div>
+
+							<p align="center">
+
+                                    <b style="color:red">سيتم اعتماد البريد الإلكتروني الخاص بك من أجل إشعارك بالمراسلات الرسمية عبر ريتاج، نرجو منك الإطلاع عليه بشكل دوري</b>
+								    <br />
+
+								<img src="star.gif" />
+								بريدك الإلكتروني: <a href="/email/" target="_blank" dir="ltr"><b>1173078@student.birzeit.edu</b></a>
+								<img src="star.gif" />
+							</p>
+
+
+					</td>
+				</tr>
+			</table>
+
+			<div style="padding:5px;"></div>
+			<table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>
+				<tr bgcolor="#d5ddc6">
+					<td>
+						<b>
+							نظام رسائل رتاج
+						</b>
+					</td>
+					<td>
+						<a target="_blank" title="Help" href="/bzu-msgs/help/">
+							<img border="0" alt="Help" src="help-icon.gif"/>
+							مساعدة
+						</a>
+					</td>
+				</tr>
+			</table>
+			<table width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl>
+				<tr>
+					<td>
+						<div id="menudiv" style="position: relative ;width: 100%; height: 100%; overflow: auto; display: block;">
+							غازي حسن
+							<br />
+								<a href="inbox.html" title="صندوق الرسائل الخاص بك"> الكل (<span style='color:red' dir=rtl><b>(20)</b></span>) </a>
+							<br />
+								<a href="newmemo.html" title="ارسال مذكرة جديدة"> ارسال مذكرة جديدة  </a>
+                            <br /> <a href="boards.html"> لوحة الإعلانات العامة <span style='color:red' dir=rtl><b>(25)</b></span></a>
+							<br /> <a href="programBach.html" title="برنامج بكالوريوس الهندسة المدنية"> برنامج بكالوريوس الهندسة المدنية </a> <br /> <a href="chance.html" title="فرص المنح"> فرص المنح <span style='color:red' dir=rtl><b>(7)</b></span></a>
+
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div style="padding:5px;"></div>
+			<table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>
+				<tr bgcolor="#d5ddc6">
+					<td title="126159">
+						<b>
+							معلومات وروابط عامة
+						</b>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<table width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl>
+                <tr>
+                    <td>
+                        <a target="_blank" href="https://www.birzeit.edu/en/events/calendar/month">University Events</a>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>
+                        <a href="/BZU-campus">Campus Map</a>
+                    </td>
+                </tr >
+                 -->
+                <tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/official-positions/">
+                            المناصب الإدارية للعام 2019/2020
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/library/">مكتبة الجامعة</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/university-laws/?root_node_id=551">
+                            دلـيل الجـامعة لبرامج الدراسات العليا
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/university-laws/?root_node_id=522">
+                            دلـيل درجة البكالوريوس
+                        </a>
+                    </td>
+                </tr>
+                <!-- tr>
+                    <td>
+                        <a href="/university-laws/huafez">خطة الحوافز </a>
+                    </td>
+                </tr -->
+			    <tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/university-laws/?root_node_id=360">
+
+								قرارات مجلس الجامعة
+
+						</a>
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        <a href="https://ritaj.birzeit.edu/university-laws/?root_node_id=100">
+
+								قوانين وأنظمة الجامعة
+
+						</a>
+                    </td>
+                </tr>
+				<!-- if  ge 0>
+					<tr>
+						<td>
+							<a href="/safety/emp-saf">
+
+									تعليمات السلامة العامة والحماية في الجامعة
+
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a target="_blank" href="hrm/forms/forms/?file=gs/key_police.pdf">
+
+									تعليمات الحصول على مفتاح
+
+							</a>
+						</td>
+					</tr>
+				</if -->
+
+					<tr>
+						<td>
+							<a href="https://ritaj.birzeit.edu/safety/stud-saf">
+
+									سلامة مقتنياتكم الشخصية
+
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="https://ritaj.birzeit.edu/downloads/public-cars.pdf">
+
+									ارشادات بخصوص السيارات القانونية المرخص لها نقل الركاب
+
+							</a>
+						</td>
+					</tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.iqrad.edu.ps/" target="_blank">
+
+                                    وحدة إقراض الطلبة - وزارة التربية والتعليم العالي
+
+                            </a>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td style="font-weight: bold">
+                        <a href="https://ritaj.birzeit.edu/calendar/registration/public-academic-2019-2020">
+
+                                 التقويم الأكاديمي للعام 2020/2019<!-- - <blink>جديد</blink> -->
+
+                        </a>
+                    </td>
+                </tr>
+				<!-- tr>
+					<td>
+						<a href="/hemis/academic-office/quality-assurance/newsletter">
+
+								وحدة الجودة والنوعية – نشرات إرشادية
+
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="/charter-honor">
+
+								ميثاق الشرف الأكاديمي
+
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="/downloads/research-honor">
+
+								ميثاق الشرف - لطباعة
+
+						</a>
+					</td>
+				</tr-->
+
+				<tr>
+					<td>
+						<a href="https://ritaj.birzeit.edu/cafeteria/2020/">
+
+								أسعار البيع في كافتريات الجامعة
+
+						</a>
+					</td>
+				</tr>
+				<!---->
+			</table>
+		</td>
+		<!-- End of Central Space -->
+		<td width="25%">
+			<style type="text/css">
+	.blink {
+    animation-duration: 0.4s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+	}
+	@keyframes blink {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>
+
+			<table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">أكاديمي</td></tr>  </table>  <table id="100" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="mobility.html">Academic Mobility</a></td></tr><tr valign="middle"><td><a href="schedule.html">البرنامج الفصلي</a></td></tr><tr valign="middle"><td><a href="minor.html">التسجيل لتخصص فرعي</a></td></tr><tr valign="middle"><td><a href="acadapplication.html">الطلبات الأكاديمية <small>- التحويل والتخصص</small></a></td></tr><tr valign="middle"><td><a href="withdraw.html">طلب الإنسحاب من مساق (W)</a></td></tr><tr valign="middle"><td><a href="minor-diploma.html">طلب دبلوم تربية</a></td></tr><tr valign="middle"><td><a href="devices-reservation.html">طلبات حجز الأجهزة</a></td></tr><tr valign="middle"><td><a href="hierarchy.html">مستعرض المساقات</a></td></tr><tr valign="middle"><td><a href="proposals-list.html">مشاريع الأبحاث الأكاديمية</a></td></tr></table><div style="padding:5px;" dir=rtl></div><table width="100%" cellspacing="0" cellpadding="2" style='border: solid black 1px;' dir=rtl>  <tr bgcolor="#d5ddc6"><td class="b">قائمة الطلبة</td></tr>  </table>  <table id="965" width="100%" cellspacing="1" cellpadding="3" style='border: solid black 1px; border-top: 0;' dir=rtl><tr valign="middle"><td><a href="advisory-sheet.html">الخطة الإرشادية للتخصص</a></td></tr><tr valign="middle"><td><a href="academic-msgs.html">الرسائل الأكاديمية</a></td></tr><tr valign="middle"><td><a href="term-summary.html">السجل الأكاديمي</a></td></tr><tr valign="middle"><td><a href="balance.html">السجل المالي</a></td></tr><tr valign="middle"><td><a href="paidwork.html">العمل الطلابي مدفوع الأجر</a></td></tr><tr valign="middle"><td><a href="stubook.html">تبادل الكتب الجامعية</a></td></tr><tr valign="middle"><td><a href="applyform.html">تسجيل لعمل تعاوني</a></td></tr><tr valign="middle"><td><a href="hourexams.html">تواريخ الإمتحانات الشهرية</a></td></tr><tr valign="middle"><td><a href="stuplan.html">خطة الطالب</a></td></tr><tr valign="middle"><td><a href="comm-work.html">سجل العمل التعاوني</a></td></tr><tr valign="middle"><td><a href="masari-certificate.html">شهادة مساري</a></td></tr><tr valign="middle"><td><a href="stuapp.html">طلب المساعدات المالية</a></td></tr><tr valign="middle"><td><a href="grades-sheet.html">علامات الفصل (الإمتحان الأول، الثاني، ...)</a></td></tr><tr valign="middle"><td><a href="authorizations.html">نظام التخويل</a></td></tr></table><div style="padding:5px;" dir=rtl></div>
+		</td>
+	</tr>
+</table>
+            <!-- Content Content End -->
+        </div>
+
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+            </div>
+
+    </body>
+</html>

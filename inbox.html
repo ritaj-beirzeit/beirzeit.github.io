@@ -1,0 +1,2977 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>InBox ()</title>
+
+
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs-rtl.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="master.css" media="all" />
+
+        <script src="ac.js"></script>
+        <script src="core.js"></script>
+        <script src="jquery-latest.min.js"></script>
+        <script src="jquery-ui-latest.custom.min.js"></script>
+        <script src="intro.min.js"></script>
+        <script src="default.js"></script>
+        <script src="default2.js"></script>
+
+            <script type="text/javascript">
+                var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/dic/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Financial Aid Form - طلب المساعدات المالية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'Administrative Positions for Academic Year 2018/2019 - المناصب الإدارية للعام 2018/2019', value: '/official-positions/'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Health Insurance Instructions - تعليمات التأمين الصحي', value: '/hrm/forms/forms/insurance-instructions-2018.pdf'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2016/'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};menuList[menuList.length] = {label: 'Health Insurance List - الأطباء والمراكز المعتمدين في التأمين الصحي', value: '/hrm/forms/forms/health-insurance-list-2018.pdf'};menuList[menuList.length] = {label: 'The Academic Calendar for 2019/2020 - التقويم الأكاديمي للعام 2020/2019', value: '/calendar/registration/public-academic-2019-2020'};
+            </script>
+
+
+    <style type="text/css">
+    tr.list-odd {
+        background-color: white;
+    }
+    </style>
+
+    </head>
+    <body dir="rtl" class="rtl" >
+
+            <div class="master-header" dir="rtl">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="/images/ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="print-header">
+                            <br/>
+                            غازي حسن |
+                            June 19, 2020 16:30 | 93.175.11.224
+                        </div>
+                    </div>
+                    <div class="user-area">
+
+                            <ul class="user-menu" data-step="1" data-intro="روابط المستخدم">
+                                <li>
+                                    <a data-load-part="chats" href="/chat/">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-comments-o fa-2x"></i>
+                                        <div class="menu-title">محادثة</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">اشعارات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">اعلانات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">رسائل</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">حسابي</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            <div class="user-menu-loaded-parts"></div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+
+                        <div class="search-form">
+
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="rtl" placeholder="ابدأ بالكتابة للبحث في القوائم"  data-step="4" data-intro="بحث عن روابط رتاج"/>
+
+                        </div>
+
+                </div>
+            </div>
+
+        <div id="slave" style="clear:both;" data-step="3" data-intro="روابط وصفحات الصناديق الرئيسية">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   أنت تستخدم متصفح <strong>غير مدعوم</strong>  <br /> نرجو <a target='_blank' href='http://browsehappy.com/'> تحديث المتصفح </a> من أجل استخدام أفضل لريتاج.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+
+
+<table borders=0 cellspacing=1 cellpadding=4 width="100%">
+<tr valign="top">
+    <td><h4>First Summer Course 2019/2020</h4></td>
+    <td>
+    <table>
+    <tr>
+    <td>
+
+	</td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    </tr>
+    </table>
+    </td>
+</tr>
+<tr>
+<td colspan="2">
+<form name="filter" action="inbox" method="post">
+<table width="30%">
+<tr>
+	<th colspan="2"><h3>Filter</h3></th>
+<tr>
+<tr>
+	<td>
+		 <input type="hidden" name="orderby" value="publish_date,desc">
+		 <input type="hidden" name="page" value="1">
+		 <input type="hidden" name="topicid" value="">
+		 <input type="hidden" name="crs" value="">
+		 <input type="hidden" name="buid" value="0">
+		 <input type="hidden" name="mttid" value="">
+		 <input type="hidden" name="sent" value="0">
+		 <input type="hidden" name="archive" value="0">
+		 <input type="hidden" name="all" value="0">
+		 <input type="hidden" name="approve" value="0">
+		 <input type="hidden" name="old" value="0">
+		 <input type="hidden" name="termid" value="1193">
+
+		<b>Title:</b> <input type="text" name="search_title" id="search_title" value="" size="50" />
+	</td>
+	<td>
+		<b>Sender (name or number):</b> <input type="text" name="search_sender" id="search_sender" value="" size="50" />
+	</td>
+</tr>
+<tr>
+	<td>
+		<b>Reciever (name or number):</b> <input type="text" name="search_reciever" id="search_reciever" value="" size="50" />
+	</td>
+	<td>
+		&nbsp;
+	</td>
+</tr>
+<tr>
+	<td colspan="2"><input 	type="submit" value="Filter" class="bt" /></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+<tr valign="top">
+    <td>
+     <table>
+     <tr>
+      <td>
+        <small> <a href="?termid=1192"> < Previous </a> | </small>
+        <div id="menudiv" style="width: 100%; height: 100%; overflow: auto; display: block; width:auto;">
+
+        <uL>
+           <li>
+             <a href="/bzu-msgs/inbox?termid=1193" > ALL <span style='color:red'><b>(20)</b></span> </a>
+             <ul><li><a href="/bzu-msgs/inbox?mttid=104&termid=1193" >Course Messages <span style='color:red'><b>(15)</b></span></a><ul><li><a href="/bzu-msgs/inbox?mttid=104&classid=152587&termid=1193">ENEE2301 / Section 1 / Ali Abdo <span style='color:red'><b>(12)</b></span></a></li><li><a href="/bzu-msgs/inbox?mttid=104&classid=153053&termid=1193">ENME335 / Section 1 / Afif Akel <span style='color:red'><b>(3)</b></span></a></li></ul></li><li><a href="/bzu-msgs/inbox?mttid=105&termid=1193" >My Messages </a></li><li><a href="/bzu-msgs/inbox?mttid=103&termid=1193" >University Boards <span style='color:red'><b>(5)</b></span></a><ul><li><a href="/bzu-msgs/boards?buid=277">Bachelor Program in Civil Engineering </a></li></ul></li></ul>
+           </li>
+           <li>
+             <a href="/bzu-msgs/inbox?sent=1&termid=1193" > Sent Items </a>
+           </li>
+           <li>
+             <a href="/bzu-msgs/inbox?approve=1&termid=1193" > Pending Approval  </a>
+
+                <ul><li><a href="/bzu-msgs/inbox?approve=1&buid=277&termid=1193">Bachelor Program in Civil Engineering</a></li></ul>
+
+           </li>
+           <li>
+             <a href="/bzu-msgs/inbox?archive=1&termid=1193" > Archived Items </a>
+           </li>
+        </uL>
+
+
+        </div>
+      </td>
+     </tr>
+     </table>
+    </td>
+    <td>
+        <script type="text/javascript">
+    $(function() {
+        $("table#template_data_table tr").hover (
+            function () {
+                $(this).addClass("highlight-row");
+            }, function() {
+                $(this).removeClass("highlight-row");
+            }
+        )
+    });
+</script>
+
+<table id="template_data_table" class="list"
+	cellpadding="3" cellspacing="1" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+
+  <form name="itemlist" method="get">
+
+  <input type="hidden" name="classid" value="0" />
+
+
+    <tr class="list-header">
+
+        <th class="list-narrow" align="center">
+
+            <input type="checkbox" name="_dummy" onclick="acs_ListCheckAll('itemlist', this.checked)" title="Check/uncheck all rows">
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=unread%2casc" title="Sort the list by this column"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=publish%5fdate%2casc">Date</a>
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=publish%5fdate%2casc" title="Reverse the sort order of this column"><img src="/resources/acs-templating/sort-descending.png" border="0"></a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=sender%2casc" title="Sort the list by this column">Sender</a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=subject%2casc" title="Sort the list by this column">Subject</a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=replies%2casc" title="Sort the list by this column">Replies</a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=cat%2casc" title="Sort the list by this column">Cat.</a>
+
+        </th>
+
+        <th class="list">
+
+              <a href="/bzu-msgs/inbox?buid=0&amp;all=0&amp;approve=0&amp;termid=1193&amp;sent=0&amp;old=0&amp;orderby=topic%2casc" title="Sort the list by this column">Topic</a>
+
+        </th>
+
+    </tr>
+
+
+
+        <tr id="TR2739394"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2739394" id="itemlist,2739394" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2739394"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2739394">2020-06-18</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2739394">Ass1 </a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=0&topicid=111&termid=1193&all=0&archive=0&sent=0&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2738462"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2738462" id="itemlist,2738462" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2738462"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2738462">2020-06-18</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2738462">QUIZ3</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=0&topicid=111&termid=1193&all=0&archive=0&sent=0&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2737038"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2737038" id="itemlist,2737038" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2737038"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2737038">2020-06-17</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2737038">invitation to lecture 18.06 Thursday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=0&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2736960"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2736960" id="itemlist,2736960" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736960"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736960"><b>2020-06-17</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736960"><b>record of lecture 17.06 Wednesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=0&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2736810"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2736810" id="itemlist,2736810" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736810"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736810"><b>2020-06-17</b></a>
+              </td>
+
+              <td class="list">
+                <b>Afif Akel</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736810"><b>Homework 3 Chap 3 CV equations</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193"><b>ENME335</b></a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=0&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2736401"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2736401" id="itemlist,2736401" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736401"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736401"><b>2020-06-17</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736401"><b>invitation to lecture 17.06 Wednesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=0&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=0&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2736420"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2736420" id="itemlist,2736420" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736420"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736420"><b>2020-06-17</b></a>
+              </td>
+
+              <td class="list">
+                <b>Allan Tubaileh</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2736420"><b>جدول تعويض المشاغل والمراسم في دائرة الهندسة الميك</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=7253&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=7253&termid=1193"><b>Faculty of Engineering and Technology</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Dept Board</b> <sub><a href="?buid=7253&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2735293"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2735293" id="itemlist,2735293" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735293"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735293">2020-06-16</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735293">quiz 2 </a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=7253&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2735164"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2735164" id="itemlist,2735164" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735164"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735164">2020-06-16</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735164">Midterm exam 25.06 (Thursday)</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2735140"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2735140" id="itemlist,2735140" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735140"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735140">2020-06-16</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735140">Short Exam #3</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2735125"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2735125" id="itemlist,2735125" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735125"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735125"><b>2020-06-16</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735125"><b>record of lecture 16.06 Tuesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2735087"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2735087" id="itemlist,2735087" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735087"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735087">2020-06-16</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2735087">Quiz 2 Fluid statics</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2734865"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2734865" id="itemlist,2734865" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734865"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734865"><b>2020-06-16</b></a>
+              </td>
+
+              <td class="list">
+                <b>Afif Akel</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734865"><b>Chapter 3 Control volume equations</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193"><b>ENME335</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2734787"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2734787" id="itemlist,2734787" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734787"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734787"><b>2020-06-16</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2734787"><b>تعويض مساقات العملي</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2733616"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2733616" id="itemlist,2733616" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733616"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733616"><b>2020-06-15</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733616"><b>lecture notes 3</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2733607"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2733607" id="itemlist,2733607" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733607"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733607"><b>2020-06-15</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733607"><b>record of lecture 15.06 Monday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2733596"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2733596" id="itemlist,2733596" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733596"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733596"><b>2020-06-15</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2733596"><b>invitation to lecture 16.06 Tuesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2732617"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2732617" id="itemlist,2732617" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732617"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732617">2020-06-15</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732617">Quiz 2</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=7253&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2732308"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2732308" id="itemlist,2732308" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732308"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732308">2020-06-15</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732308">Grades of Exam_1</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2732305"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2732305" id="itemlist,2732305" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732305"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732305">2020-06-15</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2732305">invitation to lecture 15.06 Monday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2731409"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2731409" id="itemlist,2731409" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2731409"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2731409">2020-06-14</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2731409">Re: Re: Quiz1</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=7253&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2730628"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2730628" id="itemlist,2730628" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730628"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730628">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730628">Quiz 2 Chapter 2</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2730627"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2730627" id="itemlist,2730627" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730627"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730627">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730627">Course evaluation -grade modified</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2730043"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2730043" id="itemlist,2730043" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730043"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730043">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730043">record of lecture 13.06 Saturday </a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2730032"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2730032" id="itemlist,2730032" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730032"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730032">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730032">Re: Quiz1</a>
+              </td>
+
+              <td class="list">
+                1
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=7253&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2729237"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2729237" id="itemlist,2729237" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729237"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729237">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729237">Quiz1</a>
+              </td>
+
+              <td class="list">
+                2 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=7253&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2729235"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2729235" id="itemlist,2729235" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729235"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729235">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729235">CH 4  HW and Solutions</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2729137"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2729137" id="itemlist,2729137" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729137"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729137">2020-06-13</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729137">invitation to lecture 13.06 Saturday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2730626"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2730626" id="itemlist,2730626" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730626"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730626"><b>2020-06-13</b></a>
+              </td>
+
+              <td class="list">
+                <b>Abdul Naser Arafat</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2730626"><b>تعويض المختبرات</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=125&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=125&termid=1193"><b>Department of Civil and Environmental Engineering</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Dept Board</b> <sub><a href="?buid=125&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2729027"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2729027" id="itemlist,2729027" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729027"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729027">2020-06-12</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729027">Chapter 2 Fluid statics slides</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2729025"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2729025" id="itemlist,2729025" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729025"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729025"><b>2020-06-12</b></a>
+              </td>
+
+              <td class="list">
+                <b>Afif Akel</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2729025"><b>Chapter 2 Fluid statics Problems</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193"><b>ENME335</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2726719"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2726719" id="itemlist,2726719" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726719"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726719">2020-06-11</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726719">Short Exam #2</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2726718"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2726718" id="itemlist,2726718" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726718"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726718"><b>2020-06-11</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726718"><b>record of lecture 11.06 Thursday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2726486"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2726486" id="itemlist,2726486" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726486"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726486">2020-06-11</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726486">invitation to lecture 11.06 Thursday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2726484"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2726484" id="itemlist,2726484" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726484"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726484"><b>2020-06-11</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726484"><b>record of lecture 10.06 Wednesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&oold=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2726102"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2726102" id="itemlist,2726102" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726102"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726102"><b>2020-06-10</b></a>
+              </td>
+
+              <td class="list">
+                <b>Abdul Naser Arafat</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2726102"><b>GRA position</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=125&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=125&termid=1193"><b>Department of Civil and Environmental Engineering</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Dept Board</b> <sub><a href="?buid=125&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2724760"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2724760" id="itemlist,2724760" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724760"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724760">2020-06-10</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724760">QUIZ1 </a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2724756"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2724756" id="itemlist,2724756" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724756"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724756">2020-06-10</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724756">كويز 1</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2724666"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2724666" id="itemlist,2724666" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724666"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724666">2020-06-10</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724666">Quiz 1 Introduction</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2724491"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2724491" id="itemlist,2724491" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724491"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724491">2020-06-10</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724491">Quiz1</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2724255"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2724255" id="itemlist,2724255" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724255"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724255"><b>2020-06-10</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2724255"><b>invitation to lecture 00.06 Wednesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2722724"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2722724" id="itemlist,2722724" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722724"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722724"><b>2020-06-09</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722724"><b>record of lecture 09.06 Tuesday</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2722721"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2722721" id="itemlist,2722721" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722721"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722721">2020-06-09</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722721">lecture notes 2</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2722541"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2722541" id="itemlist,2722541" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722541"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722541"><b>2020-06-09</b></a>
+              </td>
+
+              <td class="list">
+                <b>Jamal Tmeizeh</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722541"><b> يوم التوظيف الافتراضي الأول لمنطقة الشرق الأوسط و</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=7253&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=7253&termid=1193"><b>Faculty of Engineering and Technology</b></a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Dept Board</b> <sub><a href="?buid=7253&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2722422"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2722422" id="itemlist,2722422" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722422"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722422">2020-06-09</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2722422">invitation to lecture 09.06 Tuesday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2720973"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2720973" id="itemlist,2720973" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720973"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720973">2020-06-08</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720973">record of lecture 08.06 Monday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2720708"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2720708" id="itemlist,2720708" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720708"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720708">2020-06-08</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720708">invitation to lecture 08.06 Monday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=7253&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=7253&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2720253"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2720253" id="itemlist,2720253" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720253"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720253">2020-06-07</a>
+              </td>
+
+              <td class="list">
+                Abdul Naser Arafat
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720253">تعويض المختبرات</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=125&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=125&termid=1193">Department of Civil and Environmental Engineering</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Dept Board <sub><a href="?buid=125&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2720251"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2720251" id="itemlist,2720251" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720251"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720251"><b>2020-06-07</b></a>
+              </td>
+
+              <td class="list">
+                <b>Abdul Naser Arafat</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2720251"><b>تعويض المختبرات</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=103&amp;buid=125&amp;termid=1193"><a href="/bzu-msgs/type?mttid=103&buid=125&termid=1193"><b>Department of Civil and Environmental Engineering</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Dept Board</b> <sub><a href="?buid=125&topicid=112&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2719978"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2719978" id="itemlist,2719978" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719978"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719978">2020-06-07</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719978">record of lecture 06.06 Saturday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2719972"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2719972" id="itemlist,2719972" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719972"><img border=0 src="unread.gif" alt="UnRead/Read"/></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719972"><b>2020-06-07</b></a>
+              </td>
+
+              <td class="list">
+                <b>Ali Abdo</b>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2719972"><b>book + solution manual</b></a>
+              </td>
+
+              <td class="list">
+                <b>0</b> <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193"><b>ENEE2301</b></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                <b>Lecture Notes /</b> <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2718609"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2718609" id="itemlist,2718609" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2718609"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2718609">2020-06-06</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2718609">invitation to lecture 06.06 Saturday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717857"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717857" id="itemlist,2717857" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717857"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717857">2020-06-05</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717857">Problems 1 Chap 1</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717803"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717803" id="itemlist,2717803" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717803"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717803">2020-06-05</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717803">Quiz (short exam ) # 1 next Wednesday 10.06</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717801"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717801" id="itemlist,2717801" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717801"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717801">2020-06-05</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717801">HW CH2 + CH3 and its solutions</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717774"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717774" id="itemlist,2717774" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717774"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717774">2020-06-05</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717774">record of lecture 04.06 Thursday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717502"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717502" id="itemlist,2717502" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717502"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717502">2020-06-04</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717502">Quiz 1 Introduction</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2717497"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2717497" id="itemlist,2717497" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717497"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717497">2020-06-04</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2717497">chapter 1 Introduction slides</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2716527"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2716527" id="itemlist,2716527" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716527"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716527">2020-06-04</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716527">invitation to lecture 04.06 Thursday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2716203"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2716203" id="itemlist,2716203" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716203"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716203">2020-06-03</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716203">record of lecture 03.06 Wednesday</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2716169"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2716169" id="itemlist,2716169" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716169"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716169">2020-06-03</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2716169">lecture notes 1</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2715225"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2715225" id="itemlist,2715225" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2715225"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2715225">2020-06-03</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2715225">Re: Re: حذف مساقات</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2714627"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2714627" id="itemlist,2714627" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714627"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714627">2020-06-02</a>
+              </td>
+
+              <td class="list">
+                Farhat Majadbeh
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714627">Re: حذف مساقات</a>
+              </td>
+
+              <td class="list">
+                1
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2714585"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2714585" id="itemlist,2714585" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714585"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714585">2020-06-02</a>
+              </td>
+
+              <td class="list">
+                Ali Abdo
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714585">Course Outline and invitation to lecture 03.06 Wed</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=14399&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=14399&termid=1193">ENEE2301</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=14399&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2714574"
+		class="list-odd">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2714574" id="itemlist,2714574" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714574"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714574">2020-06-02</a>
+              </td>
+
+              <td class="list">
+                Afif Akel
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714574">Course Outline</a>
+              </td>
+
+              <td class="list">
+                0 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href="/bzu-msgs/type?mttid=104&amp;courseid=4918&amp;termid=1193"><a href="/bzu-msgs/type?mttid=104&courseid=4918&termid=1193">ENME335</a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub></a>
+              </td>
+
+              <td class="list">
+                Lecture Notes / <sub><a href="?buid=125&topicid=108&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2714428"
+		class="list-even">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2714428" id="itemlist,2714428" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714428"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714428">2020-06-02</a>
+              </td>
+
+              <td class="list">
+                Farhat Majadbeh
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714428">Re: حذف مساقات</a>
+              </td>
+
+              <td class="list">
+                0
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+
+        <tr id="TR2714101"
+		class="list-odd last">
+
+              <td class="list-narrow" align="center">
+                <input type="checkbox" name="msgid" value="2714101" id="itemlist,2714101" title="Check/uncheck this row, and select an action to perform below">
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714101"></a>
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714101">2020-06-02</a>
+              </td>
+
+              <td class="list">
+                Suhaib Qashou
+              </td>
+
+              <td class="list">
+                <a href="msg?mid=2714101">حذف مساقات</a>
+              </td>
+
+              <td class="list">
+                3 <img border=0 src="paperclip.gif" alt="Attachments"/>
+              </td>
+
+              <td class="list">
+                <a href=""></a> <sub><a href="?buid=125&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a></sub>
+              </td>
+
+              <td class="list">
+                Memos <sub><a href="?buid=125&topicid=111&termid=1193&all=0&archive=0&sent=0&courseid=4918&old=0&classid=0">filter</a>
+              </td>
+
+          </tr>
+
+
+    <tr class="list-button-bar">
+      <td colspan="8" class="list-button-bar">
+
+          <a href="#" title="Archive Checked Msgs" class="button"
+          onclick="acs_ListBulkActionClick('itemlist', 'archmsg'); return false;">Archive</a>
+
+      </td>
+    </tr>
+
+  </form>
+
+</tbody>
+</table>
+    </td>
+</tr>
+</table>
+
+            <!-- Content Content End -->
+        </div>
+
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+            </div>
+
+    </body>
+</html>

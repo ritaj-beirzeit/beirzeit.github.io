@@ -1,0 +1,2835 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Business Units Tree</title>
+
+
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs-rtl.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="master.css" media="all" />
+
+        <script src="ac.js"></script>
+        <script src="core.js"></script>
+        <script src="jquery-latest.min.js"></script>
+        <script src="jquery-ui-latest.custom.min.js"></script>
+        <script src="intro.min.js"></script>
+        <script src="default.js"></script>
+        <script src="default2.js"></script>
+
+            <script type="text/javascript">
+                var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/dic/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Financial Aid Form - طلب المساعدات المالية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'Administrative Positions for Academic Year 2018/2019 - المناصب الإدارية للعام 2018/2019', value: '/official-positions/'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Health Insurance Instructions - تعليمات التأمين الصحي', value: '/hrm/forms/forms/insurance-instructions-2018.pdf'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2016/'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};menuList[menuList.length] = {label: 'Health Insurance List - الأطباء والمراكز المعتمدين في التأمين الصحي', value: '/hrm/forms/forms/health-insurance-list-2018.pdf'};menuList[menuList.length] = {label: 'The Academic Calendar for 2019/2020 - التقويم الأكاديمي للعام 2020/2019', value: '/calendar/registration/public-academic-2019-2020'};
+            </script>
+
+
+    </head>
+    <body dir="rtl" class="rtl" >
+
+            <div class="master-header" dir="rtl">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="/images/ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="print-header">
+                            <br/>
+                            غازي حسن |
+                            June 19, 2020 17:04 | 93.175.11.224
+                        </div>
+                    </div>
+                    <div class="user-area">
+
+                            <ul class="user-menu" data-step="1" data-intro="روابط المستخدم">
+                                <li>
+                                    <a data-load-part="chats" href="/chat/">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-comments-o fa-2x"></i>
+                                        <div class="menu-title">محادثة</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">اشعارات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">اعلانات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">رسائل</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">حسابي</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            <div class="user-menu-loaded-parts"></div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+
+                        <div class="search-form">
+
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="rtl" placeholder="ابدأ بالكتابة للبحث في القوائم"  data-step="4" data-intro="بحث عن روابط رتاج"/>
+
+                        </div>
+
+                </div>
+            </div>
+
+        <div id="slave" style="clear:both;" data-step="3" data-intro="روابط وصفحات الصناديق الرئيسية">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   أنت تستخدم متصفح <strong>غير مدعوم</strong>  <br /> نرجو <a target='_blank' href='http://browsehappy.com/'> تحديث المتصفح </a> من أجل استخدام أفضل لريتاج.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+
+
+<p align="center">
+
+    	<a href="hierarchy?mode=CB&term=1193&lang=en">
+    		<b>ENGLISH </b>
+    	</a>
+
+</p>
+
+<div style="direction:rtl">
+	<style>
+	ul {list-style-type:none; margin-left: 0.4em; padding-left: 0;}
+
+	.head2{
+		background-color:GREEN;
+		font-family: arial; font-size: 20px; font-weight: bold;
+		color : #000001;
+
+	}
+	.head3{
+		background-color:#BDBDBD;
+		font-family: arial; font-size: 15px; font-weight: bold;
+	}
+	.head4{
+		background-color:#D9DDDD
+	}
+	li:{ background: none repeat scroll 0 0 grey;}
+</style>
+
+
+	<h3 style="font-family: Tahoma;" dir="ar" align="center">الدورة الصيفية الأولى 2019/2020</h3>
+
+	<div style="font-family: Tahoma;" dir="ar" align="center">
+		إختر الفصل:
+		<select name="term" style="font-family: Tahoma;" dir="ar"
+				onChange="document.location='/hemis/bu/hierarchy?mode=CB&lang=ar&term=' + this.value">
+            <option value="1201">الفصل الأول 2020/2021</option>
+<option value="1194">الدورة الصيفية الثانية 2019/2020</option>
+<option value="1193" selected="selected">الدورة الصيفية الأولى 2019/2020</option>
+<option value="1192">الفصل الثاني 2019/2020</option>
+<option value="1191">الفصل الأول 2019/2020</option>
+<option value="1183">الدورة الصيفية 2018/2019</option>
+<option value="1182">الفصل الثاني 2018/2019</option>
+<option value="1181">الفصل الأول 2018/2019</option>
+<option value="1173">الدورة الصيفية 2017/2018</option>
+<option value="1172">الفصل الثاني 2017/2018</option>
+<option value="1171">الفصل الأول 2017/2018</option>
+<option value="1163">الدورة الصيفية 2016/2017</option>
+<option value="1162">الفصل الثاني 2016/2017</option>
+<option value="1161">الفصل الأول 2016/2017</option>
+<option value="1153">الدورة الصيفية 2015/2016</option>
+<option value="1152">الفصل الثاني 2015/2016</option>
+<option value="1151">الفصل الأول 2015/2016</option>
+<option value="1144">الدورة الصيفية الثانية 2014/2015</option>
+<option value="1143">الدورة الصيفية الأولى 2014/2015</option>
+<option value="1142">الفصل الثاني 2014/2015</option>
+<option value="1141">الفصل الأول 2014/2015</option>
+<option value="1133">الدورة الصيفية 2013/2014</option>
+<option value="1132">الفصل الثاني 2013/2014</option>
+<option value="1131">الفصل الأول 2013/2014</option>
+<option value="1124">الدورة الصيفية الثانية 2012/2013</option>
+<option value="1123">الدورة الصيفية الأولى 2012/2013</option>
+<option value="1122">الفصل الثاني 2012/2013</option>
+<option value="1121">الفصل الأول 2012/2013</option>
+<option value="1114">الدورة الصيفية الثانية 2011/2012</option>
+<option value="1113">الدورة الصيفية الأولى 2011/2012</option>
+<option value="1112">الفصل الثاني 2011/2012</option>
+<option value="1111">الفصل الأول 2011/2012</option>
+<option value="1104">الدورة الصيفية الثانية 2010/2011</option>
+<option value="1103">الدورة الصيفية الأولى 2010/2011</option>
+<option value="1102">الفصل الثاني 2010/2011</option>
+<option value="1101">الفصل الأول 2010/2011</option>
+<option value="1093">الدورة الصيفية 2009/2010</option>
+<option value="1092">الفصل الثاني 2009/2010</option>
+<option value="1091">الفصل الأول 2009/2010</option>
+<option value="1083">الدورة الصيفية 2008/2009</option>
+<option value="1082">الفصل الثاني 2008/2009</option>
+<option value="1081">الفصل الأول  2008/2009</option>
+<option value="1073">الدورة الصيفية 2007/2008</option>
+<option value="1072">الفصل الثاني 2007/2008</option>
+<option value="1071">الفصل الأول 2007/2008</option>
+<option value="1063">الدورة الصيفية 2006/2007</option>
+<option value="1062">الفصل الثاني 2006/2007</option>
+<option value="1061">الفصل الأول 2006/2007</option>
+<option value="1053">الدورة الصيفية 2005/2006</option>
+<option value="1052">الفصل الثاني 2005/2006</option>
+<option value="1051">الفصل الأول 2005/2006</option>
+<option value="1043">الدورة الصيفية 2004/2005</option>
+<option value="1042">الفصل الثاني 2004/2005</option>
+<option value="1041">الفصل الأول 2004/2005</option>
+
+        </select>
+	</div>
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="103 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=103&lang=ar&mode=CB">
+					كلية الآداب
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="102 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=102&lang=ar&mode=CB">
+					دائرة اللغة العربية وآدابها
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="269 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=269&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة العربية وآدابها ARAB
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="5728 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=5728&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في اللغة العربية وآدابها ARAB
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="118 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=118&lang=ar&mode=CB">
+					دائرة الفلسفة والدراسات الثقافية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="329 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=329&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الدراسات الثقافية CULS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="330 - MINOR">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=330&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفلسفة PHIL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="129 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=129&lang=ar&mode=CB">
+					دائرة اللغات والترجمة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="333 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=333&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الانجليزية ENGC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="336 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=336&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الالمانية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="337 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=337&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة العبرية HEBR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="338 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=338&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الايطالية ITAL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="1621 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=1621&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الإسبانية SPAN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7653 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7653&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة التركية TURK
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7993 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7993&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الالمانية GERM
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9715 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9715&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الصينية CHIN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="13880 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=13880&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في ترجمة TRAN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="130 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=130&lang=ar&mode=CB">
+					دائرة اللغة الإنجليزية وآدابها
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="280 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=280&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الإنجليزية وآدابها ENGL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="136 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=136&lang=ar&mode=CB">
+					دائرة الجغرافية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="282 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=282&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الجغرافية GEOG
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="602 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=602&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الجغرافية GEOG
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="148 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=148&lang=ar&mode=CB">
+					دائرة التاريخ والآثار
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="347 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=347&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الآثار الفلسطينية ARCH
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="348 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=348&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التاريخ HIST
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="162 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=162&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في التاريخ العربي الإسلامي AMHI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="160 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=160&lang=ar&mode=CB">
+					دائرة الإعلام
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="355 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=355&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الصحافة JOUR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="356 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=356&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الإعلام MDIA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="357 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=357&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الإذاعة RABC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="358 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=358&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التلفزة TELV
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9094 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9094&langlang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الإعلام MDJO
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="166 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=166&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الدراسات العربية والفلسطينية ARSK
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="201 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=201&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في دراسات المرأة WOMS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="204 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=204&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفنون الجميلة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="370 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=370&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفنون الجميلة ARTS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="371 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=371&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفنون الجميلة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="702 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=702&lang=ar&mode=CB">
+					دائرة اللغة الفرنسية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="279 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=279&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في اللغة الفرنسية FREN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="334 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=334&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في تعليم اللغة الفرنسية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="339 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=339&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في ترجمة فرنسية تحريرية وفورية TIFR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="6629 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=6629&lang=ar&mode=CB">
+					دائرة العلوم الإجتماعية والسلوكية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="288 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=288&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علم الاجتماع SOCI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="367 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=367&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علم الإنسان ANTH
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="369 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=369&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في العمل الإجتماعي SOCW
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2788 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2788&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علم النفس PSYC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="165 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=165&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في علم الاجتماع SOCI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2325 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2325&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في علم النفس المجتمعي CPSY
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="10275 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=10275&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الاكاديمية الدولية للفنون - فلسطين
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="105 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=105&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الدراسات العربية المعاصرة ARST
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="8715 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=8715&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الترجمة ثلاثي اللغة TRIN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="113 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=113&lang=ar&mode=CB">
+					كلية الأعمال والاقتصاد
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="100 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=100&lang=ar&mode=CB">
+					دائرة المحاسبة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="268 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=268&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في المحاسبة ACCT
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="108 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=108&lang=ar&mode=CB">
+					دائرة إدارة الاعمال
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="324 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=324&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في إدارة الاعمال BUSA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="662 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=662&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التسويق MKET
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="123 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=123&lang=ar&mode=CB">
+					دائرة الإقتصاد
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="275 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=275&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الإقتصاد ECON
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="159 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=159&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الإقتصاد ECON
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="560 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=560&lang=ar&mode=CB">
+					دائرة العلوم المالية والمصرفية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="325 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=325&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في العلوم المالية والمصرفية FINN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="11419 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=11419&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في العلوم المالية الاكتوارية ACFI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7214 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7214&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التعليم التعاوني
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="156 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=156&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في إدارة الأعمال BUSA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9233 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9233&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في إدارة الأعمال التنفيذي EMBA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="138 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=138&lang=ar&mode=CB">
+					كلية الدراسات العليا
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7069 - PHD-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7069&lang=ar&mode=CB">
+					برنامج دكتوراه العلوم الاجتماعية PHSS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="101 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=101&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الإحصاء التطبيقي APST
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="133 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=133&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في هندسة المياه والبيئة WEEN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="149 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=149&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الصحة العامة والمجتمعية HLTH
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="152 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=152&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الدراسات الدولية INST
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="158 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=158&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الديمقراطية وحقوق الإنسان DMHR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="188 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=188&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في علوم المياه والبيئة WESC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="480 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=480&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في دراسات النوع الاجتماعي والتنمية GADS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7572 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7572&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الدراسات الإسرائيلية ISST
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="11500 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=11500&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الإحصاء التطبيقي وعلم البيانات ASDS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="13879 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=13879&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في ماجستير دراسات الهجرة الدولية واللجوء IMRS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="174 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=174&lang=ar&mode=CB">
+					كلية العلوم
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="106 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=106&lang=ar&mode=CB">
+					دائرة الأحياء والكيمياء الحيوية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="270 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=270&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الأحياء BIOL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="298 - MINOR">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=298&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الكيمياء الحيوية BIOC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="323 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=323&lang=ar&mode=CB">
+
+						مساقات العلوم العامة GENS
+
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7932 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7932&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الأحياء البيئية BIOL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="110 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=110&lang=ar&mode=CB">
+					دائرة الكيمياء
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="272 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=272&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الكيمياء CHEM
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="326 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=326&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الكيمياء التطبيقية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="328 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=328&lang=ar&mode=CB">
+
+						مساقات العلوم العامة GENS
+
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="1581 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=1581&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الكيمياء التطبيقية CHEM
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="155 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=155&lang=ar&mode=CB">
+					دائرة الرياضيات
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="213 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=213&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الرياضيات التطبيقية في الإقتصاد MAEC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="284 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=284&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الرياضيات MATH
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="352 - MINOR">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=352&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الاحصاء STAT
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="742 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=742&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الرياضيات MATH
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="168 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=168&lang=ar&mode=CB">
+					دائرة الفيزياء
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="286 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=286&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفيزياء PHYS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="1703 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=1703&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الفيزياء PHYS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="212 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=212&lang=ar&mode=CB">
+					كلية الحقوق والإدارة العامة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="191 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=191&lang=ar&mode=CB">
+					دائرة الإدارة العامة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="266 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=266&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الإدارة العامة PUBA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="192 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=192&lang=ar&mode=CB">
+					دائرة القانون
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="267 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=267&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في القانون JURI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="163 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=163&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في القانون JURI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="210 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=210&lang=ar&mode=CB">
+					دائرة العلوم السياسية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="289 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=289&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في العلوم السياسية POLS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="8293 - MINOR">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=8293&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علاقات دولية INRE
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9594 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9594&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في القانون والاقتصاد LECO
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="10317 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=10317&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الحكومة والحكم المحلي GOVS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="664 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=664&lang=ar&mode=CB">
+					كلية الصيدلة والتمريض والمهن الصحية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="666 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=666&lang=ar&mode=CB">
+					دائرة التمريض
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="842 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=842&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التمريض NURS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="13359 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=13359&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في تمريض الأورام ONCN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="668 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=668&lang=ar&mode=CB">
+					دائرة التغذية والحمية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="841 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=841&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التغذية والحمية NUTD
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="672 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=672&lang=ar&mode=CB">
+					دائرة الصيدلة
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="3029 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=3029&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في دكتور صيدلي PHAR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="8239 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=8239&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في تكنولوجيا الصناعة الدوائية MIPT
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="4268 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=4268&lang=ar&mode=CB">
+					دائرة علاج النطق والسمع
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="4269 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=4269&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علاج النطق والسمع SPAU
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="157 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=157&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في العلوم الطبية المخبرية MCLS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2186 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2186&lang=ar&mode=CB">
+					كلية التربية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2770 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2770&lang=ar&mode=CB">
+					دائرة المناهج والتعليم
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2787 - PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2787&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التربية EDUC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2789 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2789&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في التربية EDUC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9354 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9354&lang=ar&mode=CB">
+					دائرة التربية الرياضية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7992 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7992&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التربية الرياضية PHED
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="6791 - PROG">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=6791&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التعليم التعاوني
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7253 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7253&lang=ar&mode=CB">
+					كلية الهندسة والتكنولوجيا
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="124 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=124&lang=ar&mode=CB">
+					دائرة الهندسة المعمارية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="276 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=276&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الهندسة المعمارية ENAR
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="8295 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=8295&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في هندسة التخطيط والتصميم الحضري ENPL
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="125 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=125&lang=ar&mode=CB">
+					دائرة الهندسة المدنية والبيئية
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="277 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=277&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الهندسة المدنية ENCE
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="11860 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=11860&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الهندسة البيئية ENEV
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="12779 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=12779&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الهندسة المدنية ENCE
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="131 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=131&lang=ar&mode=CB">
+					دائرة الهندسة الميكانيكية والميكاترونكس
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="281 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=281&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الهندسة الميكانيكية ENME
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="2225 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=2225&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في هندسة الميكاترونيكس ENMC
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="13939 - MA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=13939&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الهندسة الميكانيكية ENME
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="605 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=605&lang=ar&mode=CB">
+					دائرة علم الحاسوب
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="273 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=273&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في علم الحاسوب COMP
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7213 - PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7213&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التعليم التعاوني
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7261 - DEPT">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7261&lang=ar&mode=CB">
+					دائرة الهندسة الكهربائية وهندسة الحاسوب
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="278 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=278&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الهندسة الكهربائية ENEE
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl4">
+	<table>
+		<tr  	class="head4"  class="gc"  >
+
+		<td style="padding:0.1em;" title="331 - BA-PROG">
+			<p class="head4" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=331&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في هندسة أنظمة الحاسوب ENCS
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="761 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=761&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في هندسة التخطيط العمراني وعمارة المشهد UPLA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="4188 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=4188&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الحوسبة MCOM
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7633 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7633&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في هندسة الإستدامة في الإنتاج ENSU
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="7953 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=7953&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في هندسة البرمجيات SWEN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="8555 - MA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=8555&lang=ar&mode=CB">
+					مساقات مستوى درجة الماجستير في الهندسة الكهربائية JMEE
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="10516 - PROG">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=10516&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في القيادة والمواطنة الفاعلة LRNJ
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl2">
+	<table>
+		<tr  	class="head2"  class="gc"  >
+
+		<td style="padding:0.1em;" title="10568 - FAC">
+			<p class="head2" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=10568&lang=ar&mode=CB">
+					كلية الفنون والموسيقى والتصميم
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+<ul>
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="9193 - BA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=9193&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الموسيقى العربية MUSI
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="10276 - BA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=10276&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في الفنون البصرية المعاصرة COVA
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+<li style="margin-left:2em; padding:0.1em; " class="lvl3">
+	<table>
+		<tr  	class="head3"  class="gc"  >
+
+		<td style="padding:0.1em;" title="11699 - BA-PROG">
+			<p class="head3" >
+				<a target=_blank href="/hemis/courses?term=1193&bu=11699&lang=ar&mode=CB">
+					مساقات مستوى درجة البكالوريوس في التصميم DSGN
+				</a>
+			</p>
+		</td>
+
+	</tr>
+	</table>
+
+
+</li></ul>
+</div>
+
+<p align="center">
+
+    	<a href="hierarchy?mode=CB&term=1193&lang=en"><b>ENGLISH </b></a>
+
+</p>
+            <!-- Content Content End -->
+        </div>
+
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+            </div>
+
+    </body>
+</html>

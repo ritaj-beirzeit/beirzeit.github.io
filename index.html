@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ritaj - Birzeit University</title>
+        <script src="jquery-1.9.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                if ($('input[name="username"]').val().trim() == '') {
+                    $('input[name="username"]').focus();
+                }
+
+                // code to handle arabic numbers and convert them to english numbers
+                $(document).on('keyup change', ':input[type!="password"]', function (e) {
+                    var position = e.target.selectionStart;
+                    var code = $(this).val().charAt(position - 1).charCodeAt(0);
+                    if ((code >= 1632 && code <= 1641) || e.type == 'change') {
+                        var newVal = $(this).val().replace(/([٠١٢٣٤٥٦٧٨٩])|([0123456789])/g, function(m, $1, $2) {
+                            return m.charCodeAt(0) - ($1 ? 1632 : 48);
+                        });
+                        $(this).val(newVal);
+                        e.target.selectionEnd = position;
+                    }
+                });
+            });
+        </script>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="ritaj.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/" target="_top" class="pull-left">
+                        <img class="pull-left" id="ritaj-logo" src="Ritaj.gif" alt="Ritaj Logo">
+                    </a>
+                    <div class="pull-left slogan-container hidden-xs pull-left">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="en">Birzeit University Academic and Administrative Portal</div>
+                    </div>
+                    <a href="http://www.birzeit.edu/" target="_blank" rel="noreferrer" class="pull-right">
+                        <img src="birzeit_AE_small.gif" alt="BZU Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="login-container">
+
+
+<div id="register-login">
+<form name="login" method="post"
+                    action="account.html" style="margin: 0px;" autocomplete="off"><input type="hidden" name="form:mode" value="edit" />
+<input type="hidden" name="form:id" value="login" />
+<table cellspacing="2" cellpadding="2" border="0">
+  <input type="hidden" name="__confirmed_p" value="0" /><input type="hidden" name="__refreshing_p" value="0" /><input type="hidden" name="return_url" value="/" /><input type="hidden" name="time" value="1592495987" /><input type="hidden" name="token_id" value="610" /><input type="hidden" name="hash" value="C71D5735F69C22798BD6AF516C5319D960F426B9" />
+          <tr class="form-element">
+
+
+
+                  <td class="form-label">
+
+
+                اسم المستخدم
+
+               </td>
+
+
+                  <td class="form-widget">
+                <input type="text" name="username" value="" autocomplete="off" placeholder="Username" />
+
+
+            </td>
+          </tr>
+
+
+          <tr class="form-element">
+
+
+
+                  <td class="form-label">
+
+
+                كلمة المرور
+
+               </td>
+
+
+                  <td class="form-widget">
+                <input type="password" name="password" autocomplete="off" placeholder="Password" />
+
+
+            </td>
+          </tr>
+
+
+          <tr class="form-element">
+            <td align="left" colspan="2">
+              <button onclick="window.location.href='account.html'" type="submit" >	تسجيل دخول</button>
+              <!-- <button onclick="window.location.href='b.php'">Click me</button> -->
+
+            </td>
+          </tr>
+
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "account.html";
+    };
+</script>
+
+</div>
+
+                        <a href="/users/recover-pwd/">نسيت كلمة المرور؟ - <span dir="ltr">Forgot your password?</span></a>
+                    </div>
+                </div>
+                <div class="col-sm-8 hidden-xs main-photo-container">
+                    <img src="1.jpg">
+                </div>
+            </div>
+            <div class="row msg-box-container">
+                <!--[if lt IE 11]>
+                    <div class="msg-box">
+                        أنت تستخدم متصفح قديم. قم <a target="_blank" rel="noreferrer" href="http://browsehappy.com/">بتحديث متصفحك</a> لعرض الموقع بالشكل الصحيح.
+                    </div>
+                <![endif]-->
+
+                    <div class="msg-box">
+
+                            <p style="text-align: center;"><span style="font-size: 14pt;">&nbsp;&nbsp;&nbsp;&nbsp; لتغيير كلمة المرور حساب رتاج خلال فترة الطوارئ بإمكانكم الاتصال على الرقم (2982012 - <span style="font-size: 14pt;">02</span>) خلال فترة الدوام الرسمي من الساعة 8 صباحا الى 4 عصرا</span></p>
+
+                    </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 links-box">
+                    <div class="links-box-header">
+                        <img border="0" src="arrow-rtl.png" />
+                        <span class="box-title">متفرقات</span>
+                        <div class="links-box-header-angle"></div>
+                    </div>
+                    <div class="links-box-body">
+                        <ul>
+
+                                    <li>
+
+                                            <a class="" href="/honor-list" target="_self">
+
+                                                لائحة الشرف
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/dept-schedule/" target="_self">
+
+                                                مواعيد دوام واستراحة الدوائر
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/downloads/wl/" target="_self">
+
+                                                اعدادات الشبكة اللاسلكية
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/cafeteria/2020/" target="_self">
+
+                                                أسعار البيع في كافتريات الجامعة
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/emergancy-phones" target="_self">
+
+                                                هواتف ضرورية
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/safety-letters/" target="_self">
+
+                                                نشرات إرشادية - قسم السلامة العامة
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            &nbsp;
+
+                                    </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12 links-box">
+                    <div class="links-box-header">
+                        <img border="0" src="arrow-rtl.png" />
+                        <span class="box-title">معلومات</span>
+                        <div class="links-box-header-angle"></div>
+                    </div>
+                    <div class="links-box-body">
+                        <ul>
+
+                                    <li>
+
+                                            <a class="" href="/calendar/registration/public-academic-2019-2020" target="_self">
+                                                <img height='14px' src='star.gif' />
+                                                التقويم الأكاديمي للعام الدراسي 2019/2020
+                                                <img height='14px' src='star.gif' />
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/university-laws/?root_node_id=522" target="_self">
+
+                                                دليل درجة البكالوريوس
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/university-laws/?root_node_id=551" target="_self">
+
+                                                دليل الدراسات العليا
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/university-laws" target="_self">
+
+                                                الأنظمة والتعليمات
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/bzu-msgs/boards" target="_self">
+
+                                                لوحة الإعلانات الرسمية
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/university-laws/questions" target="_self">
+
+                                                أسئلة شائعة - دائرة التسجيل والقبول
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="bold" href="/pay" target="_self">
+                                                <img height='14px' src='star.gif' />
+                                                تعليمات دفع الرسوم الجامعية
+                                                <img height='14px' src='star.gif' />
+                                            </a>
+
+                                    </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12 links-box">
+                    <div class="links-box-header">
+                        <img border="0" src="arrow-rtl.png" />
+                        <span class="box-title">روابط</span>
+                        <div class="links-box-header-angle"></div>
+                    </div>
+                    <div class="links-box-body">
+                        <ul>
+
+                                    <li>
+
+                                            <a class="" href="/suggestions/redirect" target="_self">
+
+                                                صندوق الإقتراحات والشكاوى
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/library/" target="_self">
+
+                                                مكتبات الجامعة
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="http://www.iqrad.edu.ps/" target="_blank" rel="noreferrer">
+
+                                                وحدة إقراض الطلبة - وزارة التربية والتعليم العالي
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="http://mail.ritaj.ps/" target="_blank" rel="noreferrer">
+
+                                                البريد الإلكتروني
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/tenders" target="_self">
+
+                                                عطاءات
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/downloads/ecareer/" target="_self">
+
+                                                طلبات التوظيف
+
+                                            </a>
+
+                                    </li>
+
+                                    <li>
+
+                                            <a class="" href="/hemis/bu/hierarchy?mode=CB" target="_self">
+                                                <img height='14px' src='star.gif' />
+                                                مستعرض المساقات
+                                                <img height='14px' src='star.gif' />
+                                            </a>
+
+                                    </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr/>
+                    <small class="text-muted">
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
