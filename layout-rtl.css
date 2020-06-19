@@ -1,0 +1,157 @@
+html {
+    direction: rtl;
+}
+
+body {
+    font-size: 14px;
+}
+
+.header_container .search_form {
+    float: left;
+}
+
+.header_container .search_form input {
+    direction: rtl;
+}
+
+.header_container #ritaj_logo {
+    float: right;
+}
+
+.header_container .site_name {
+    font-size: 15px;
+    float: right;
+}
+
+.user_area {
+    float: left;
+}
+
+.user_area span {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+#notification_box,
+#settings_box {
+    right: auto;
+    left: -10px;
+}
+
+#notification_box:after,
+#settings_box:after {
+    right: auto;
+    left: 10px;
+    margin-left: 0px;
+    margin-right: -10px;
+}
+
+.notification_container a {
+    font-size: 12px;
+}
+
+.language_switcher {
+    float: left;
+    font-size: 12px;
+}
+
+.main_container {
+    margin: 15px 10px 10px 10px;
+}
+
+.with_hidden_app_menu {
+    margin-left: 10px;
+    margin-right: 35px;
+}
+
+.with_app_menu {
+    margin-left: 10px;
+    margin-right: 220px;
+}
+
+.app_menu {
+    float: right;
+}
+
+.vertical_app_menu {
+    transform: rotate(90deg);
+    transform-origin: 100px 100px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -ms-transform-origin: 100px 100px; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -webkit-transform-origin: 100px 100px; /* Safari and Chrome */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -moz-transform-origin: 100px 100px; /* Firefox */
+    -o-transform: rotate(90deg); /* Opera */
+    -o-transform-origin: 100px 100px; /* Opera */
+}
+
+.bzu_logo, .footer_text {
+    float: right;
+}
+
+.left {
+    float:right;
+}
+.right {
+    float:left;
+}
+
+
+.wc-container table td {
+	margin: 0;
+	padding: 0;
+}
+.wc-day-column-inner {
+	float: right;
+}
+.wc-cal-event {
+	 left: 5%;
+}
+
+.time_col, .wc-day-column {
+	float: right;
+}
+.wc-day-column {
+	border-right: 1px solid #DDDDDD;
+	right: 47px;
+}
+.wc-hour-header , .wc-business-hours-spliter , .wc-business-hours {
+	text-align: left;
+}
+.wc-hour-headerhulf-spliter {
+	border-top-style: dotted;
+}
+.wc-hour-headerhulf {
+	text-align: left;
+}
+.day-header {
+	float: right;
+
+}
+.dataTables_wrapper .dataTables_length {
+    float: right;
+}
+.dataTables_wrapper .dataTables_info {
+    clear: both;
+    float: right;
+    padding-top: 0.755em;
+}
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    text-align: right;
+}
+
+/*========================for datetimepicker========================*/
+.datetimepicker.datetimepicker-rtl {direction: ltr; width:210px;}
+.dropdown-menu {right: 1}
+
+/*
+ *Print CSS
+ */
+@media print {
+    .with_app_menu {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

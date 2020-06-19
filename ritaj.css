@@ -1,0 +1,157 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    border: 0;
+}
+
+.ar {
+    direction: rtl;
+    text-align: right;
+}
+
+.en {
+    direction: ltr;
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.grid-container {
+    max-width: 960px;
+}
+
+.slogan-container {
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+img#ritaj-logo {
+    width: 91px;
+    height: 61px;
+}
+
+.main-photo-container {
+    height: 200px;
+    overflow: hidden;
+}
+.main-photo-container img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.login-container #register-login {
+    margin: 30px 20px 20px 20px;
+}
+
+.login-container {
+    background-color: rgba(7, 96, 31, 1);
+    border: 1px solid #07601f;
+    height: 200px;
+    box-shadow: 0px 0px 4px 4px #ccc inset;
+}
+
+.login-container a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: .9em;
+    color: #ccc;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.login-container table {
+    width: 100%;
+}
+
+.login-container table .form-label,
+.login-container table .form-label-error {
+    font-weight: bold;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.login-container table .form-widget-error div.form-error {
+    font-size: .8em;
+    color: red;
+}
+
+.login-container table .form-widget input,
+.login-container table .form-widget-error input {
+    width: 100%;
+    direction: ltr;
+    margin: 2px 0;
+}
+
+.login-container table input[type=submit] {
+}
+
+.msg-box-container {
+    margin: 5px 0;
+}
+
+.msg-box {
+    background-color: #FFFEBC;
+    border: 1px solid #CEB300;
+    border-radius: 7px 7px 7px 7px;
+    color: #FF2400;
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.links-box .links-box-header {
+    color: white;
+    height: 20px;
+    padding-left: 3px;
+    padding-top: 0;
+    width: 70%;
+    background-color: #07601f;
+}
+
+.links-box .links-box-header .box-title {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.links-box .links-box-header .links-box-header-angle {
+    float: left;
+    width: 0px;
+    height: 0px;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid #07601f;
+    margin-left: -22px;
+}
+
+.links-box .links-box-body {
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: #07601f;
+}
+
+.links-box .links-box-body ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.links-box .links-box-body a {
+    display: block;
+    border-bottom: 1px silver dotted;
+    text-decoration: none;
+    color: black;
+}
+
+.links-box a:hover {
+    background:#E3FDCE;
+}

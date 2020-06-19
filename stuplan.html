@@ -1,0 +1,2109 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>خطة الطالب</title>
+
+
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs-rtl.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="master.css" media="all" />
+
+        <script src="ac.js"></script>
+        <script src="core.js"></script>
+        <script src="jquery-latest.min.js"></script>
+        <script src="jquery-ui-latest.custom.min.js"></script>
+        <script src="intro.min.js"></script>
+        <script src="default.js"></script>
+        <script src="default2.js"></script>
+
+
+            <script type="text/javascript">
+                var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/dic/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Financial Aid Form - طلب المساعدات المالية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'Administrative Positions for Academic Year 2018/2019 - المناصب الإدارية للعام 2018/2019', value: '/official-positions/'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Health Insurance Instructions - تعليمات التأمين الصحي', value: '/hrm/forms/forms/insurance-instructions-2018.pdf'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2016/'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};menuList[menuList.length] = {label: 'Health Insurance List - الأطباء والمراكز المعتمدين في التأمين الصحي', value: '/hrm/forms/forms/health-insurance-list-2018.pdf'};menuList[menuList.length] = {label: 'The Academic Calendar for 2019/2020 - التقويم الأكاديمي للعام 2020/2019', value: '/calendar/registration/public-academic-2019-2020'};
+            </script>
+
+
+    </head>
+    <body dir="rtl" class="rtl" >
+
+            <div class="master-header" dir="rtl">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="/images/ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="print-header">
+                            <br/>
+                            غازي حسن |
+                            June 19, 2020 18:12 | 93.175.11.224
+                        </div>
+                    </div>
+                    <div class="user-area">
+
+                            <ul class="user-menu" data-step="1" data-intro="روابط المستخدم">
+                                <li>
+                                    <a data-load-part="chats" href="/chat/">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-comments-o fa-2x"></i>
+                                        <div class="menu-title">محادثة</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">اشعارات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">اعلانات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">رسائل</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">حسابي</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            <div class="user-menu-loaded-parts"></div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+
+                        <div class="search-form">
+
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="rtl" placeholder="ابدأ بالكتابة للبحث في القوائم"  data-step="4" data-intro="بحث عن روابط رتاج"/>
+
+                        </div>
+
+                </div>
+            </div>
+
+        <div id="slave" style="clear:both;" data-step="3" data-intro="روابط وصفحات الصناديق الرئيسية">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   أنت تستخدم متصفح <strong>غير مدعوم</strong>  <br /> نرجو <a target='_blank' href='http://browsehappy.com/'> تحديث المتصفح </a> من أجل استخدام أفضل لريتاج.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+            ﻿
+<link rel="stylesheet" type="text/css" href="/resources/asm.css" media="all" />
+
+
+<p align="center">إطلع على <a href="./advisory-sheet/?student="><b>الخطة الإرشادية </b></a></b></p>
+
+<table cellspacing="0" cellpadding="2" width="100%" dir="rtl">
+	<tr bgcolor="#d5ddc6" class="gclo">
+		<td title="8922485, 4849"><span class="nv b">ENCE/1161</span></td>
+		<td>Civil Engineering</td>
+		<td>الهندسة المدنية</td>
+		<td>7 <small>ساعة منجزة</small></td>
+		<td>436 <small>نقطة</small></td>
+		<td title="62.2857142857"><small>معدل التخصص</small> 62.29</td>
+		<td>أخر إحتساب في تاريخ 01 Jun, 2020 - 09:52</td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="4" width="100%" dir="rtl">
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667363,22214 - E:0, GPA:5, P:366, AVG:73.2">
+					متطلبات جامعة
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							8
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_1">
+						<td class="label">المكتسب</td>
+						<td>8</td>
+					</tr>
+
+						<tr class="gc nv ff_1">
+							<td colspan="2">تــام</td>
+						</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RTWV" id="17724-5005">
+				<td class="nv" title="5005,76882547" width="20%" id="CRL17724-5005">ARAB135</td>
+				<td align="center" dir="rtl">مهارات اللغة العربية 1</td>
+
+					<td width="25">3</td>
+					<td width="35" title="WV">&nbsp;</td>
+					<td width="35">P</td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17724-5006">
+				<td class="nv" title="5006,76882547" width="20%" id="CRL17724-5006">ARAB136</td>
+				<td align="center" dir="rtl">مهارات اللغة العربية 2</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">74</td>
+					<td width="35">1172</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17724-3650">
+				<td class="nv" title="3650,76882547" width="20%" id="CRL17724-3650">PHED120</td>
+				<td align="center" dir="rtl">التربية الرياضية</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">72</td>
+					<td width="35">1171</td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667377,22221 - E:0, GPA:8, P:628, AVG:78.5">
+					متطلبات جامعة إختيارية
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							7
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_1">
+						<td class="label">المكتسب</td>
+						<td>8</td>
+					</tr>
+
+						<tr class="gc nv ff_1">
+							<td colspan="2">تــام</td>
+						</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				إحدى المجموعات التالية﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+                                    <tr>
+                                        <td colspan=2 align="center" style="border-bottom:1px black solid; background-color:#abcdef;">
+                                            English Level A1/A2
+                                        </td>
+                                    </tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882554, E:0, GPA:8, P:628, AVG:78.5">
+									المطلوب: 7 -
+									<span class="ff_1">
+										المكتسب: 8
+
+											&nbsp; - <b>تام</b>
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17736-17925">
+				<td class="nv" title="17925," width="20%" id="CRL17736-17925">ENGC1000</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى استدراكي / مكثف </td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17736-16637">
+				<td class="nv" title="16637," width="20%" id="CRL17736-16637">ENGC1001</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى استدراكي 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17736-16638">
+				<td class="nv" title="16638," width="20%" id="CRL17736-16638">ENGC1002</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى استدراكي 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17736-16639">
+				<td class="nv" title="16639,76882554" width="20%" id="CRL17736-16639">ENGC1201</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 1</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">79</td>
+					<td width="35">1171</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17736-16640">
+				<td class="nv" title="16640,76882554" width="20%" id="CRL17736-16640">ENGC1202</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 2</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">81</td>
+					<td width="35">1172</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17736-17926">
+				<td class="nv" title="17926," width="20%" id="CRL17736-17926">ENGC1400</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط مكثف 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17736-16641">
+				<td class="nv" title="16641,76882554" width="20%" id="CRL17736-16641">ENGC2201</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 3</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">82</td>
+					<td width="35">1173</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17736-16642">
+				<td class="nv" title="16642,76882554" width="20%" id="CRL17736-16642">ENGC2202</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 4</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">72</td>
+					<td width="35">1181</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17736-17927">
+				<td class="nv" title="17927," width="20%" id="CRL17736-17927">ENGC2400</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط مكثف 2 </td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+                                    <tr>
+                                        <td colspan=2 align="center" style="border-bottom:1px black solid; background-color:#abcdef;">
+                                            English Level B1/B2
+                                        </td>
+                                    </tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882557, E:0, GPA:4, P:308, AVG:77">
+									المطلوب: 7 -
+									<span class="ff_0">
+										المكتسب: 4
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RTN disabled " id="17737-16641">
+				<td class="nv" title="16641,76882554" width="20%" id="CRL17737-16641">ENGC2201</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 3</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">82</td>
+					<td width="35">1173</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN disabled " id="17737-16642">
+				<td class="nv" title="16642,76882554" width="20%" id="CRL17737-16642">ENGC2202</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط 4</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">72</td>
+					<td width="35">1181</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17737-16643">
+				<td class="nv" title="16643," width="20%" id="CRL17737-16643">ENGC2203</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17737-16644">
+				<td class="nv" title="16644," width="20%" id="CRL17737-16644">ENGC2204</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17737-17927">
+				<td class="nv" title="17927," width="20%" id="CRL17737-17927">ENGC2400</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متوسط مكثف 2 </td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17737-17928">
+				<td class="nv" title="17928," width="20%" id="CRL17737-17928">ENGC2401</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم / مكثف</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+                                    <tr>
+                                        <td colspan=2 align="center" style="border-bottom:1px black solid; background-color:#abcdef;">
+                                            English Level C
+                                        </td>
+                                    </tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882564, E:0, GPA:0, P:0, AVG:">
+									المطلوب: 7 -
+									<span class="ff_0">
+										المكتسب: 0
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17738-16643">
+				<td class="nv" title="16643," width="20%" id="CRL17738-16643">ENGC2203</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17738-16644">
+				<td class="nv" title="16644," width="20%" id="CRL17738-16644">ENGC2204</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17738-17417">
+				<td class="nv" title="17417," width="20%" id="CRL17738-17417">ENGC2305</td>
+				<td align="center" dir="rtl">الكتابة العملية باللغة الانجليزية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17738-17928">
+				<td class="nv" title="17928," width="20%" id="CRL17738-17928">ENGC2401</td>
+				<td align="center" dir="rtl">لغة انجليزية مستوى متقدم / مكثف</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17738-3833">
+				<td class="nv" title="3833," width="20%" id="CRL17738-3833">ENGL233</td>
+				<td align="center" dir="rtl">الكتابة 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667380,22220 - E:0, GPA:3, P:234, AVG:78">
+					متطلبات جامعة إختيارية
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							6
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>3</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RTN" id="17734-5002">
+				<td class="nv" title="5002,76882576" width="20%" id="CRL17734-5002">CULS331</td>
+				<td align="center" dir="rtl">الحضارة الاوروبية الحديثه والمعاصره</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">78</td>
+					<td width="35">1182</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17734-6115">
+				<td class="nv" title="6115," width="20%" id="CRL17734-6115">CULS332</td>
+				<td align="center" dir="rtl">الفكر العربي الحديث والمعاصر</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17734-15544">
+				<td class="nv" title="15544," width="20%" id="CRL17734-15544">CULS333</td>
+				<td align="center" dir="rtl">فلسطين : الهوية والقضية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667388,22215 - E:0, GPA:23, P:1405, AVG:61.087">
+					متطلبات كلية
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							30
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>26</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RTN" id="17725-5485">
+				<td class="nv" title="5485,76882580" width="20%" id="CRL17725-5485">CHEM143</td>
+				<td align="center" dir="rtl">الكيمياء لطلبة كلية الهندسه</td>
+
+					<td width="25">4</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1172</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17725-5488">
+				<td class="nv" title="5488," width="20%" id="CRL17725-5488">COMP230</td>
+				<td align="center" dir="rtl">الحاسوب والبرمجة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-5216">
+				<td class="nv" title="5216,76882580" width="20%" id="CRL17725-5216">ENCE232</td>
+				<td align="center" dir="rtl">الاستاتيكا</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1191</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-3645">
+				<td class="nv" title="3645,76882580" width="20%" id="CRL17725-3645">ENME120</td>
+				<td align="center" dir="rtl">مشغل</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">70</td>
+					<td width="35">1171</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-3291">
+				<td class="nv" title="3291,76882580" width="20%" id="CRL17725-3291">ENME121</td>
+				<td align="center" dir="rtl">الرسم الهندسى</td>
+
+					<td width="25">2</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1182</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-15680">
+				<td class="nv" title="15680,76882580" width="20%" id="CRL17725-15680">MATH1321</td>
+				<td align="center" dir="rtl">التفاضل والتكامل 2</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-15682">
+				<td class="nv" title="15682,76882580" width="20%" id="CRL17725-15682">MATH1411</td>
+				<td align="center" dir="rtl">التفاضل والتكامل 1</td>
+
+					<td width="25">4</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1172</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-4145">
+				<td class="nv" title="4145,76882580" width="20%" id="CRL17725-4145">PHYS111</td>
+				<td align="center" dir="rtl">مختبر الفيزياء العامة 1</td>
+
+					<td width="25">1</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">65</td>
+					<td width="35">1171</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17725-4118">
+				<td class="nv" title="4118," width="20%" id="CRL17725-4118">PHYS112</td>
+				<td align="center" dir="rtl">مختبر الفيزياء العامة 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-4121">
+				<td class="nv" title="4121,76882580" width="20%" id="CRL17725-4121">PHYS132</td>
+				<td align="center" dir="rtl">الفيزياء العامة 2</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1181</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17725-3426">
+				<td class="nv" title="3426,76882580" width="20%" id="CRL17725-3426">PHYS141</td>
+				<td align="center" dir="rtl">الفيزياء العامة 1</td>
+
+					<td width="25">4</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1171</td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667396,22216 - E:0, GPA:7, P:436, AVG:62.286">
+					متطلبات تخصص
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							92
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>16</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17726-16911">
+				<td class="nv" title="16911," width="20%" id="CRL17726-16911">ENAR3391</td>
+				<td align="center" dir="rtl">انشاء المباني</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16088">
+				<td class="nv" title="16088," width="20%" id="CRL17726-16088">ENCE215</td>
+				<td align="center" dir="rtl">مختبر مواد البناء</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-5185">
+				<td class="nv" title="5185,76882592" width="20%" id="CRL17726-5185">ENCE231</td>
+				<td align="center" dir="rtl">الجيولوجيا الهندسية</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1191</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-5220">
+				<td class="nv" title="5220,76882592" width="20%" id="CRL17726-5220">ENCE233</td>
+				<td align="center" dir="rtl">مقاومة المواد</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16089">
+				<td class="nv" title="16089," width="20%" id="CRL17726-16089">ENCE234</td>
+				<td align="center" dir="rtl">مواد البناء</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5996">
+				<td class="nv" title="5996," width="20%" id="CRL17726-5996">ENCE311</td>
+				<td align="center" dir="rtl">مختبر التربة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-16095">
+				<td class="nv" title="16095,76882592" width="20%" id="CRL17726-16095">ENCE316</td>
+				<td align="center" dir="rtl">مختبر مساحة لطلبة الهندسة المدنية</td>
+
+					<td width="25">1</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">76</td>
+					<td width="35">1191</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16097">
+				<td class="nv" title="16097," width="20%" id="CRL17726-16097">ENCE318</td>
+				<td align="center" dir="rtl">مختبر الميكانيكا والإنشاءات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5181">
+				<td class="nv" title="5181," width="20%" id="CRL17726-5181">ENCE331</td>
+				<td align="center" dir="rtl">ميكانيكا التربة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16091">
+				<td class="nv" title="16091," width="20%" id="CRL17726-16091">ENCE3331</td>
+				<td align="center" dir="rtl">التحليل الانشائي 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16099">
+				<td class="nv" title="16099," width="20%" id="CRL17726-16099">ENCE3341</td>
+				<td align="center" dir="rtl">التحليل الإنشائي 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-11380">
+				<td class="nv" title="11380," width="20%" id="CRL17726-11380">ENCE335</td>
+				<td align="center" dir="rtl">تصميم الخرسانة المسلحة 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-16100">
+				<td class="nv" title="16100,76882592" width="20%" id="CRL17726-16100">ENCE337</td>
+				<td align="center" dir="rtl">مساحة لطلبة الهندسة المدنية</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16101">
+				<td class="nv" title="16101," width="20%" id="CRL17726-16101">ENCE338</td>
+				<td align="center" dir="rtl">رسم هندسة مدنية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-12058">
+				<td class="nv" title="12058," width="20%" id="CRL17726-12058">ENCE411</td>
+				<td align="center" dir="rtl">ندوة في الهندسة المدنية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-6001">
+				<td class="nv" title="6001," width="20%" id="CRL17726-6001">ENCE419</td>
+				<td align="center" dir="rtl">مختبر المياه والبيئة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16102">
+				<td class="nv" title="16102," width="20%" id="CRL17726-16102">ENCE421</td>
+				<td align="center" dir="rtl">العقود والمواصفات الفنية وحساب الكميات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-19943">
+				<td class="nv" title="19943," width="20%" id="CRL17726-19943">ENCE4300</td>
+				<td align="center" dir="rtl">التدريب العملي</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5650">
+				<td class="nv" title="5650," width="20%" id="CRL17726-5650">ENCE431</td>
+				<td align="center" dir="rtl">هندسة المواصلات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5195">
+				<td class="nv" title="5195," width="20%" id="CRL17726-5195">ENCE432</td>
+				<td align="center" dir="rtl">هندسة الاساسات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-16103">
+				<td class="nv" title="16103," width="20%" id="CRL17726-16103">ENCE4331</td>
+				<td align="center" dir="rtl">إدارة المشاريع 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5200">
+				<td class="nv" title="5200," width="20%" id="CRL17726-5200">ENCE435</td>
+				<td align="center" dir="rtl">الهيدرولوجيا والهيدروليكا</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5171">
+				<td class="nv" title="5171," width="20%" id="CRL17726-5171">ENCE436</td>
+				<td align="center" dir="rtl">تصميم الخرسانة المسلحة 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5190">
+				<td class="nv" title="5190," width="20%" id="CRL17726-5190">ENCE437</td>
+				<td align="center" dir="rtl">الإنشاءات المعدنية 1</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-6002">
+				<td class="nv" title="6002," width="20%" id="CRL17726-6002">ENCE438</td>
+				<td align="center" dir="rtl">هندسة الطرق</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-6003">
+				<td class="nv" title="6003," width="20%" id="CRL17726-6003">ENCE439</td>
+				<td align="center" dir="rtl">امدادات المياه والصرف الصحي</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-4723">
+				<td class="nv" title="4723," width="20%" id="CRL17726-4723">ENCE520</td>
+				<td align="center" dir="rtl">مقدمة مشروع التخرج</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-4724">
+				<td class="nv" title="4724," width="20%" id="CRL17726-4724">ENCE530</td>
+				<td align="center" dir="rtl">مشروع التخرج</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT current " id="17726-14399">
+				<td class="nv" title="14399," width="20%" id="CRL17726-14399">ENEE2301</td>
+				<td align="center" dir="rtl">الدوائر الكهربائية 1</td>
+
+					<td width="25">3</td>
+					<td width="70" colspan=2 title="In Progress">مسجل للفصل</td>
+					<td width="25">1193</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-14406">
+				<td class="nv" title="14406," width="20%" id="CRL17726-14406">ENEE2307</td>
+				<td align="center" dir="rtl">الاحتمالات والإحصاء الهندسي</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-4908">
+				<td class="nv" title="4908,76882592" width="20%" id="CRL17726-4908">ENME232</td>
+				<td align="center" dir="rtl">الديناميكا</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-5817">
+				<td class="nv" title="5817," width="20%" id="CRL17726-5817">ENME312</td>
+				<td align="center" dir="rtl">مختبر ميكانيكا الموائع</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT current " id="17726-4918">
+				<td class="nv" title="4918," width="20%" id="CRL17726-4918">ENME335</td>
+				<td align="center" dir="rtl">ميكانيكا الموائع 1</td>
+
+					<td width="25">3</td>
+					<td width="70" colspan=2 title="In Progress">مسجل للفصل</td>
+					<td width="25">1193</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RTN" id="17726-6087">
+				<td class="nv" title="6087,76882592" width="20%" id="CRL17726-6087">MATH234</td>
+				<td align="center" dir="rtl">مقدمة في الجبر الخطي</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">60</td>
+					<td width="35">1181</td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-6095">
+				<td class="nv" title="6095," width="20%" id="CRL17726-6095">MATH330</td>
+				<td align="center" dir="rtl">طرق التحليل  العددي</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17726-4440">
+				<td class="nv" title="4440," width="20%" id="CRL17726-4440">MATH331</td>
+				<td align="center" dir="rtl">المعادلات التفاضلية العادية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667404,22219 - E:0, GPA:0, P:0, AVG:">
+					إختياري تخصص
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							9
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>0</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				إحدى المجموعات التالية﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+								<tr>
+									<td align="center" style="border-bottom:1px black solid; background-color:#FEFF6F;" width="100%">
+										تركيــز الانشاءات
+									</td>
+								</tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882611, E:0, GPA:0, P:0, AVG:">
+									المطلوب: 9 -
+									<span class="ff_0">
+										المكتسب: 0
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17730-6013">
+				<td class="nv" title="6013," width="20%" id="CRL17730-6013">ENCE5361</td>
+				<td align="center" dir="rtl">تصميم الخرسانة المسلحة 3</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17730-6014">
+				<td class="nv" title="6014," width="20%" id="CRL17730-6014">ENCE5362</td>
+				<td align="center" dir="rtl">انشاءات معدنية 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17730-16104">
+				<td class="nv" title="16104," width="20%" id="CRL17730-16104">ENCE5365</td>
+				<td align="center" dir="rtl">التحليل الإنشائي 3</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+								<tr>
+									<td align="center" style="border-bottom:1px black solid; background-color:#FEFF6F;" width="100%">
+										تركيــز المياه والبيئة
+									</td>
+								</tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882613, E:0, GPA:0, P:0, AVG:">
+									المطلوب: 9 -
+									<span class="ff_0">
+										المكتسب: 0
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17731-6018">
+				<td class="nv" title="6018," width="20%" id="CRL17731-6018">ENCE5370</td>
+				<td align="center" dir="rtl">هندسة المياه الجوفية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17731-6019">
+				<td class="nv" title="6019," width="20%" id="CRL17731-6019">ENCE5371</td>
+				<td align="center" dir="rtl">هندسة المياه العادمة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17731-6020">
+				<td class="nv" title="6020," width="20%" id="CRL17731-6020">ENCE5372</td>
+				<td align="center" dir="rtl">تخطيط وإدارة مصادر المياه</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+								<tr>
+									<td align="center" style="border-bottom:1px black solid; background-color:#FEFF6F;" width="100%">
+										تركيــز المواصلات والطرق
+									</td>
+								</tr>
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882617, E:0, GPA:0, P:0, AVG:">
+									المطلوب: 9 -
+									<span class="ff_0">
+										المكتسب: 0
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17729-6006">
+				<td class="nv" title="6006," width="20%" id="CRL17729-6006">ENCE5350</td>
+				<td align="center" dir="rtl">هندسة المرور</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17729-6007">
+				<td class="nv" title="6007," width="20%" id="CRL17729-6007">ENCE5351</td>
+				<td align="center" dir="rtl">تصميم الرصفات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17729-6008">
+				<td class="nv" title="6008," width="20%" id="CRL17729-6008">ENCE5352</td>
+				<td align="center" dir="rtl">تخطيط المواصلات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+							<tr bgcolor="#d9d9d9">
+								<td style="border-bottom:1px black solid"
+									title="76882618, E:0, GPA:0, P:0, AVG:">
+									المطلوب: 9 -
+									<span class="ff_0">
+										المكتسب: 0
+
+									</span>
+								</td>
+							</tr>
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17732-6006">
+				<td class="nv" title="6006," width="20%" id="CRL17732-6006">ENCE5350</td>
+				<td align="center" dir="rtl">هندسة المرور</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6007">
+				<td class="nv" title="6007," width="20%" id="CRL17732-6007">ENCE5351</td>
+				<td align="center" dir="rtl">تصميم الرصفات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6008">
+				<td class="nv" title="6008," width="20%" id="CRL17732-6008">ENCE5352</td>
+				<td align="center" dir="rtl">تخطيط المواصلات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6013">
+				<td class="nv" title="6013," width="20%" id="CRL17732-6013">ENCE5361</td>
+				<td align="center" dir="rtl">تصميم الخرسانة المسلحة 3</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6014">
+				<td class="nv" title="6014," width="20%" id="CRL17732-6014">ENCE5362</td>
+				<td align="center" dir="rtl">انشاءات معدنية 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-16104">
+				<td class="nv" title="16104," width="20%" id="CRL17732-16104">ENCE5365</td>
+				<td align="center" dir="rtl">التحليل الإنشائي 3</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6018">
+				<td class="nv" title="6018," width="20%" id="CRL17732-6018">ENCE5370</td>
+				<td align="center" dir="rtl">هندسة المياه الجوفية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6019">
+				<td class="nv" title="6019," width="20%" id="CRL17732-6019">ENCE5371</td>
+				<td align="center" dir="rtl">هندسة المياه العادمة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17732-6020">
+				<td class="nv" title="6020," width="20%" id="CRL17732-6020">ENCE5372</td>
+				<td align="center" dir="rtl">تخطيط وإدارة مصادر المياه</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+		<table cellspacing="0" cellpadding="2" width="100%" style="border:1px solid black; margin:2px;">
+			<tr valign="top" bgcolor="#dcdcdc">
+				<td align="center" width="100" style="border-bottom: 1px solid black;">مستوى سنة 5</td>
+				<td style="border-bottom: 1px solid black;">ENCE - برنامج بكالوريوس الهندسة المدنية</td>
+			</tr>
+			<tr>
+				<td width="100">&nbsp;</td>
+				<td>﻿</td>
+			</tr>
+		</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667406,22217 - E:0, GPA:0, P:0, AVG:">
+					إختياري تخصص
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							3
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>0</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc RT" id="17727-4471">
+				<td class="nv" title="4471," width="20%" id="CRL17727-4471">ENAR536</td>
+				<td align="center" dir="rtl">أنظمة المعلومات الجغرافية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-3217">
+				<td class="nv" title="3217," width="20%" id="CRL17727-3217">ENCE5315</td>
+				<td align="center" dir="rtl">صيانة وترميم الأبنية</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-3348">
+				<td class="nv" title="3348," width="20%" id="CRL17727-3348">ENCE5316</td>
+				<td align="center" dir="rtl">إدارة المشاريع 2</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6009">
+				<td class="nv" title="6009," width="20%" id="CRL17727-6009">ENCE5353</td>
+				<td align="center" dir="rtl">المواصلات العامة في المدن</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6207">
+				<td class="nv" title="6207," width="20%" id="CRL17727-6207">ENCE5354</td>
+				<td align="center" dir="rtl">إدارة وصيانة الرصفات</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6015">
+				<td class="nv" title="6015," width="20%" id="CRL17727-6015">ENCE5363</td>
+				<td align="center" dir="rtl">الخرسانة مسبقة الاجهاد</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6205">
+				<td class="nv" title="6205," width="20%" id="CRL17727-6205">ENCE5364</td>
+				<td align="center" dir="rtl">هندسة الزلازل</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6206">
+				<td class="nv" title="6206," width="20%" id="CRL17727-6206">ENCE5373</td>
+				<td align="center" dir="rtl">معالجة المياه</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6022">
+				<td class="nv" title="6022," width="20%" id="CRL17727-6022">ENCE5374</td>
+				<td align="center" dir="rtl">النفايات الصلبة</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+			<tr class="gc RT" id="17727-6024">
+				<td class="nv" title="6024," width="20%" id="CRL17727-6024">ENCE5381</td>
+				<td align="center" dir="rtl">موضوع اختياري:تأهيل واصلاح المباني</td>
+
+					<td width="25"></td>
+					<td width="35" title="">&nbsp;</td>
+					<td width="35"></td>
+					<td width="35"></td>
+
+				<td width="10"></td>
+			</tr>
+
+	</table>
+
+		<table cellspacing="0" cellpadding="2" width="100%" style="border:1px solid black; margin:2px;">
+			<tr valign="top" bgcolor="#dcdcdc">
+				<td align="center" width="100" style="border-bottom: 1px solid black;">مستوى سنة 5</td>
+				<td style="border-bottom: 1px solid black;">ENCE - برنامج بكالوريوس الهندسة المدنية</td>
+			</tr>
+			<tr>
+				<td width="100">&nbsp;</td>
+				<td>﻿</td>
+			</tr>
+		</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+			</td>
+		</tr>
+
+		<tr valign="center">
+			<td align="center" style="border-bottom: 1px solid #ababab;" width="20%">
+				<div title="49667407,22218 - E:0, GPA:4, P:312, AVG:78">
+					مساقات حرة
+				</div>
+				<table cellpadding="2" cellspacing="2">
+					<tr class="gc nv">
+						<td class="label">المطلوب</td>
+						<td>
+							5
+
+								<br/><span class="b" style="color:blue;">-1</span>
+
+						</td>
+					</tr>
+					<tr class="gc nv ff_0">
+						<td class="label">المكتسب</td>
+						<td>4</td>
+					</tr>
+
+				</table>
+			</td>
+			<td style="border-bottom: 1px solid #ababab;" id="APS-FE" >
+				﻿
+	<table cellspacing="1" cellpadding="3" width="100%">
+
+			<tr valign="top">
+				<td width="100%">
+					<table cellspacing="0" cellpadding="2" width="100%" style="border: 1px solid black;">
+
+						<tr>
+							<td align="center">
+								﻿
+	<table cellspacing="2" cellpadding="3" width="100%" id="groupCourses">
+
+			<tr class="gc external RTN" id="768826213754">
+				<td class="nv" title="3754,76882621" width="20%" id="CRL768826213754">ARAB331</td>
+				<td align="center" dir="rtl">الدراسات القرانية</td>
+
+					<td width="25">3</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">76</td>
+					<td width="35">1182</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262110358">
+				<td class="nv" title="10358,76882621" width="20%" id="CRL7688262110358">GEOG210</td>
+				<td align="center" dir="rtl">قضايا البيئة في المجتمع الفلسطيني</td>
+
+					<td width="25">1</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">84</td>
+					<td width="35">1181</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117695">
+				<td class="nv" title="17695,76882621" width="20%" id="CRL7688262117695">LRNJ101</td>
+				<td align="center" dir="rtl">الكفاءات الشخصية</td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">P</td>
+					<td width="35">1172</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117696">
+				<td class="nv" title="17696,76882621" width="20%" id="CRL7688262117696">LRNJ102</td>
+				<td align="center" dir="rtl">المسار المهني</td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">P</td>
+					<td width="35">1171</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117735">
+				<td class="nv" title="17735,76882621" width="20%" id="CRL7688262117735">LRNJ201</td>
+				<td align="center" dir="rtl">المواطنة </td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">P</td>
+					<td width="35">1181</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117736">
+				<td class="nv" title="17736,76882621" width="20%" id="CRL7688262117736">LRNJ202</td>
+				<td align="center" dir="rtl">المناظرة</td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">P</td>
+					<td width="35">1182</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117738">
+				<td class="nv" title="17738,76882621" width="20%" id="CRL7688262117738">LRNJ301</td>
+				<td align="center" dir="rtl">الريادة المجتمعية 1</td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10">*</td>
+			</tr>
+
+			<tr class="gc external RTN" id="7688262117737">
+				<td class="nv" title="17737,76882621" width="20%" id="CRL7688262117737">LRNJ302</td>
+				<td align="center" dir="rtl">الريادة المجتمعية 2</td>
+
+					<td width="25">0</td>
+					<td width="35" title="N">&nbsp;</td>
+					<td width="35">EP</td>
+					<td width="35">1192</td>
+
+				<td width="10">*</td>
+			</tr>
+
+	</table>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+	</table>
+
+						<table cellspacing="2" cellpadding="3" width="100%" style="border: 1px solid black;">
+
+								<tr class="gc current">
+									<td class="nv" title="16089" width="65">ENCE234</td>
+									<td align="center" dir="rtl"  width="200">مواد البناء</td>
+									<td width="25">3</td>
+									<td width="70">مسجل للفصل</td>
+									<td width="25">1191</td>
+									<td width="10">**</td>
+								</tr>
+
+						</table>
+
+			</td>
+		</tr>
+
+</table>
+            <!-- Content Content End -->
+        </div>
+
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+            </div>
+
+    </body>
+</html>
