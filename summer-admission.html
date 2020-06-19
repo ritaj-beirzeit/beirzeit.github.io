@@ -1,0 +1,607 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Registration System</title>
+
+
+        <meta name="Description" content="ritaj.birzeit.edu - Academic and Administrative Portal for Birzeit, the Palestinian University in the West Bank." />
+        <meta name="keywords" content="Ritaj, Palestine, Jerusalem, Alquds, Ramallah, Birzeit, Bir Zeit, University, Israeli Palestinian conflict, Israel, Palistine, Peace Process, Hebron, Bethlehem, International Programme, International Program, Palestinian Legislative Council, PLO, Palestine Liberation Organisation, Palestinian National Authority, Palestinian Authority, PNA, PA, Palestinian, Israelis,  Oslo Agreements, West Bank, Gaza, Gaza Strip, Middle East, Al-Quds, Palestinian Culture, Arab World, Oslo, Al Quds, Palestinian Refugees, Al-Nakba, Edward Said, Naji Ali, Egypt, Jordan, Arabic" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="jquery-ui-latest.custom.css"  media="all" />
+        <link rel="stylesheet" type="text/css" href="master.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="introjs-rtl.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="master.css" media="all" />
+
+        <script src="ac.js"></script>
+        <script src="core.js"></script>
+        <script src="jquery-latest.min.js"></script>
+        <script src="jquery-ui-latest.custom.min.js"></script>
+        <script src="intro.min.js"></script>
+        <script src="default.js"></script>
+        <script src="default2.js"></script>
+
+            <script type="text/javascript">
+                var menuList = new Array();menuList[menuList.length] = {label: 'Academic - أكاديمي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Course Schedule - البرنامج الفصلي', value: '/student/schedule'};menuList[menuList.length] = {label: 'Course Browser - مستعرض المساقات', value: '/hemis/bu/hierarchy?mode=CB'};menuList[menuList.length] = {label: 'W Request - طلب الإنسحاب من مساق (W)', value: '/student/withdraw/'};menuList[menuList.length] = {label: 'Academic Applications - Specalization &amp; Transfer - الطلبات الأكاديمية - التحويل والتخصص', value: '/acap/application'};menuList[menuList.length] = {label: 'Education Diploma Program Application - طلب دبلوم تربية', value: '/student/forms/minor-diploma/'};menuList[menuList.length] = {label: 'Claiming Minor - التسجيل لتخصص فرعي', value: '/student/forms/minor-diploma/minor/'};menuList[menuList.length] = {label: 'Academic Research Proposals - مشاريع الأبحاث الأكاديمية', value: '/instructor/proposals/list'};menuList[menuList.length] = {label: 'Academic Mobility - Academic Mobility', value: '/be1/en/academic/mobility'};menuList[menuList.length] = {label: 'Devices Reservation Requests - طلبات حجز الأجهزة', value: '/be1/en/student/devices-reservation'};menuList[menuList.length] = {label: 'Financial - مالي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Siblings Scholarship - منحة الأخوة', value: '/student/scholarships/list-brother-scholarship'};menuList[menuList.length] = {label: 'Administration - إداري', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Faculty Transfer Conditions - شروط التحويل بين الكليات', value: '/acap/transfer-conditions/list'};menuList[menuList.length] = {label: 'Work and Break Time Schedule for Departments - مواعيد دوام واستراحة الدوائر في الجامعة', value: '/dept-schedule/'};menuList[menuList.length] = {label: 'Complaints and Suggestions - شكاوى واقتراحات', value: '/suggestions/'};menuList[menuList.length] = {label: 'Personal Profile - الملف الشخصي', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'My Contact Information - معلومات الإتصال', value: '/person-maintained/contact-info'};menuList[menuList.length] = {label: 'Library Books - الاستعارة من المكتبة', value: '/library/user-docs-status'};menuList[menuList.length] = {label: 'User Settings - الإعدادات الشخصية', value: '/users/'};menuList[menuList.length] = {label: 'Assign Appointments - حجز المواعيد (الساعات المكتبية،العيادات...)', value: '/appointments/'};menuList[menuList.length] = {label: 'Eduroam network - Eduroam شبكة', value: '/be1/application/network-access/list-edu-roam-devices'};menuList[menuList.length] = {label: 'Services Requests - طلبات الدعم', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Drug Information Center - مركز المعلومات الدوائية', value: '/be1/medical/dic/'};menuList[menuList.length] = {label: 'Student Menu - قائمة الطلبة', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Academic Record - السجل الأكاديمي', value: '/student/marks/term-summary'};menuList[menuList.length] = {label: 'Financial Record - السجل المالي', value: '/student/fin-balance'};menuList[menuList.length] = {label: 'Published Grades (1 st, HW, ..) - علامات الفصل (الإمتحان الأول، الثاني، ...)', value: '/student/marks/grades-sheet'};menuList[menuList.length] = {label: 'Community Work Record - سجل العمل التعاوني', value: '/student/comm-work'};menuList[menuList.length] = {label: 'Academic Messages - الرسائل الأكاديمية', value: '/student/academic-msgs/'};menuList[menuList.length] = {label: 'Student Plan - خطة الطالب', value: '/student/plan/'};menuList[menuList.length] = {label: 'Registration of Community Work - تسجيل لعمل تعاوني', value: '/hemis/community-work/work-apply-form'};menuList[menuList.length] = {label: 'Exchange of academic books - تبادل الكتب الجامعية', value: '/student/books/'};menuList[menuList.length] = {label: 'Authorization System - نظام التخويل', value: '/student/authorizations/'};menuList[menuList.length] = {label: 'Advisory Plan Sheet - الخطة الإرشادية للتخصص', value: '/student/plan/advisory-sheet/'};menuList[menuList.length] = {label: 'Financial Aid Form - طلب المساعدات المالية', value: '/be1/financial/student-aid/list-student-applications'};menuList[menuList.length] = {label: 'Student Employment - العمل الطلابي مدفوع الأجر', value: '/student/paid-work/student'};menuList[menuList.length] = {label: 'Hour Exams Dates - تواريخ الإمتحانات الشهرية', value: '/student/hour-exams'};menuList[menuList.length] = {label: 'Masari Certificate - شهادة مساري', value: '/be1/student/marks/masari-certificate'};menuList[menuList.length] = {label: 'Management Tasks - مهام إدارية', value: 'javascript:undefined'};menuList[menuList.length] = {label: 'Recommendation Requests - طلب توصية', value: '/student/forms/recommendation'};menuList[menuList.length] = {label: 'Administrative Positions for Academic Year 2018/2019 - المناصب الإدارية للعام 2018/2019', value: '/official-positions/'};menuList[menuList.length] = {label: 'University Library - مكتبة الجامعة', value: '/library/'};menuList[menuList.length] = {label: 'University Laws and Regulations - قوانين وأنظمة الجامعة', value: '/university-laws/?root_node_id=100'};menuList[menuList.length] = {label: 'Health Insurance Instructions - تعليمات التأمين الصحي', value: '/hrm/forms/forms/insurance-instructions-2018.pdf'};menuList[menuList.length] = {label: 'Solidarity Fund Instructions - تعليمات صندوق التضامن', value: '/hrm/forms/forms/solidarity/Solidarity_Fund_instructions'};menuList[menuList.length] = {label: 'Administrative Manual - الدليل الإداري', value: '/hrm/forms/forms/?file=admin-manual'};menuList[menuList.length] = {label: 'Cafeteria Prices - أسعار البيع في كافتريات الجامعة', value: '/cafeteria/2016/'};menuList[menuList.length] = {label: 'Hospitalities Prices in Central Cafeteria - اسعار الضيافات في الكافتريا المركزية', value: '/cafeteria/cafteria-official-prices'};menuList[menuList.length] = {label: 'Health Insurance List - الأطباء والمراكز المعتمدين في التأمين الصحي', value: '/hrm/forms/forms/health-insurance-list-2018.pdf'};menuList[menuList.length] = {label: 'The Academic Calendar for 2019/2020 - التقويم الأكاديمي للعام 2020/2019', value: '/calendar/registration/public-academic-2019-2020'};
+            </script>
+
+
+    <link rel="stylesheet" type="text/css" href="ac.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="reg.css" media="all" />
+	<script language="javascript" type="text/javascript" src="ac.js"></script>
+	<script language="javascript" type="text/javascript" src="reg.js?20200604"></script>
+    <script type="text/javascript">
+	<!--
+		var crList = new Array();crList[crList.length] =
+		['268', '3647', 'ACCT130', 'المحاسبة المالية 1', 'FINANCIAL ACCOUNTING 1', '0', ''];crList[crList.length] =
+		['268', '5484', 'ACCT230', 'المحاسبة المالية 2', 'FINANCIAL ACCOUNTING 2', '0', ''];crList[crList.length] =
+		['268', '3694', 'ACCT332', 'مبادىء الضريبة', 'PRINCIPLES OF TAXATION', '0', ''];crList[crList.length] =
+		['268', '4390', 'ACCT333', 'المحاسبة الادارية', 'MANAGERIAL ACCOUNTING', '0', ''];crList[crList.length] =
+		['268', '18061', 'ACCT3331', 'المحاسبة الإدارية لطلبة العلوم المالية والمصرفية', 'MANAGERIAL ACCOUNTING FOR FINANCE STUDENTS', '0', ''];crList[crList.length] =
+		['268', '3696', 'ACCT334', 'محاسبة المنشآت المالية', 'ACCOUNTING OF FINANCIAL INSTITUTIONS', '0', ''];crList[crList.length] =
+		['268', '14084', 'ACCT337', 'التدقيق الداخلي وإدارة المخاطر', 'INTERNAL AUDITING AND RISK MANAGEMENT', '0', ''];crList[crList.length] =
+		['269', '5005', 'ARAB135', 'مهارات اللغة العربية 1', 'ARABIC LANGUAGE SKILLS 1', '0', ''];crList[crList.length] =
+		['269', '5006', 'ARAB136', 'مهارات اللغة العربية 2', 'ARABIC LANGUAGE SKILLS 2', '0', ''];crList[crList.length] =
+		['269', '3754', 'ARAB331', 'الدراسات القرانية', 'QURANIC STUDIES', '0', ''];crList[crList.length] =
+		['269', '4433', 'ARAB332', 'علم مصطلح الحديث', 'HADITH (ISLAMIC TRADITION) LITERATURE AND SCHOLARSHIP', '0', ''];crList[crList.length] =
+		['269', '4434', 'ARAB431', 'تطبيقات لغوية', 'LINGUISTIC APPLICATIONS', '0', ''];crList[crList.length] =
+		['5728', '13524', 'ARAB637', 'فن القصة في الأدب العربي', 'NARRATIVE IN ARABIC LITERATURE', '0', ''];crList[crList.length] =
+		['11500', '18794', 'ASDS6381', 'تحليل السلاسل الزمنية', 'TIME SERIES ANALYSIS', '0', ''];crList[crList.length] =
+		['324', '4025', 'BUSA230', 'مبادىء إدارة الأعمال', 'PRINCIPLES OF MANAGEMENT', '0', ''];crList[crList.length] =
+		['324', '5434', 'BUSA232', 'الاتصالات التجارية', 'BUSINESS COMMUNICATION', '0', ''];crList[crList.length] =
+		['324', '5435', 'BUSA236', 'إدارة المنشآت صغيرة الحجم', 'SMALL BUSINESS MANAGEMENT', '0', ''];crList[crList.length] =
+		['324', '5436', 'BUSA238', 'مقدمة في نظم المعلومات الادارية', 'INTRODUCTION TO MANAGEMENT INFORMATION SYSTEMS', '0', ''];crList[crList.length] =
+		['324', '4034', 'BUSA330', 'إدارة الموارد البشرية', 'HUMAN RESOURCES MANAGEMENT', '0', ''];crList[crList.length] =
+		['324', '4036', 'BUSA331', 'نظرية التنظيم', 'ORGANIZATION THEORY', '0', ''];crList[crList.length] =
+		['324', '4039', 'BUSA332', 'الاعمال الدولية', 'INTERNATIONAL BUSINESS', '0', ''];crList[crList.length] =
+		['324', '4424', 'BUSA333', 'السلوك التنظيمي', 'ORGANIZATIONAL BEHAVIOR', '0', ''];crList[crList.length] =
+		['324', '4305', 'BUSA3371', 'إدارة الانتاج 1', 'PRODUCTION MANAGEMENT 1', '0', ''];crList[crList.length] =
+		['324', '6090', 'BUSA436', 'الإدارة الاستراتيجية', 'STRATEGIC MANAGEMENT', '0', ''];crList[crList.length] =
+		['156', '3974', 'BUSA632', 'إدارة مالية', 'FINANCIAL MANAGEMENT', '0', ''];crList[crList.length] =
+		['156', '3975', 'BUSA633', 'إدارة تسويق', 'MARKETING MANAGEMENT', '0', ''];crList[crList.length] =
+		['272', '4249', 'CHEM230', 'اسس الكيمياء العضوية', 'FUNDAMENTAL ORGANIC CHEMISTRY', '0', ''];crList[crList.length] =
+		['9715', '17315', 'CHIN131', 'اللغة الصينية للمبتدئين 1', 'CHINESE LANGUAGE FOR BEGINNERS 1', '0', ''];crList[crList.length] =
+		['273', '18998', 'COMP111', 'مقدمة في تطبيقات الحاسوب', 'INTRODUCTION TO COMPUTER APPLICATIONS', '0', ''];crList[crList.length] =
+		['273', '16555', 'COMP122', 'مقدمة في الحاسوب', 'INTRODUCTION TO COMPUTER', '0', ''];crList[crList.length] =
+		['273', '4446', 'COMP132', 'مقدمة في الحاسوب والبرمجة', 'INTRODUCTION TO COMPUTER AND PROGRAMMING', '0', ''];crList[crList.length] =
+		['273', '14617', 'COMP133', 'الحاسوب والبرمجة', 'COMPUTER AND PROGRAMMING', '0', ''];crList[crList.length] =
+		['273', '5488', 'COMP230', 'الحاسوب والبرمجة', 'COMPUTER AND PROGRAMMING', '0', ''];crList[crList.length] =
+		['273', '19866', 'COMP3300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['2325', '9996', 'CPSY635', 'تطور الطفولة والمراهقة في بيئة الحرب', 'CHILD AND ADOLESCENT DEVELOPMENT IN WAR ENVIRONMENT', '0', ''];crList[crList.length] =
+		['329', '5002', 'CULS331', 'الحضارة الاوروبية الحديثه والمعاصره', 'MODERN AND CONTEMPORARY EUROPEAN CIVILIZATION', '0', ''];crList[crList.length] =
+		['329', '5003', 'CULS332', 'الفكر العربي الحديث والمعاصر', 'MODERN AND CONTEMPORARY ARAB THOUGHT', '0', ''];crList[crList.length] =
+		['158', '16869', 'DMHR6184', 'القوانين السارية وحقوق الإنسان', 'HUMAN RIGHTS AND CURRENT LAWS IN PALESTINE', '0', ''];crList[crList.length] =
+		['275', '4253', 'ECON131', 'مبادىء الإقتصاد الجزئي', 'PRINCIPLES OF MICROECONOMICS', '0', ''];crList[crList.length] =
+		['275', '4252', 'ECON132', 'مبادىء الإقتصاد الكلي', 'PRINCIPLES OF MACROECONOMICS', '0', ''];crList[crList.length] =
+		['275', '3327', 'ECON233', 'مجمل في الإقتصاد', 'GENERAL ECONOMICS', '0', ''];crList[crList.length] =
+		['275', '5487', 'ECON235', 'مناهج البحث', 'METHODOLOGY OF RESEARCH', '0', ''];crList[crList.length] =
+		['275', '5271', 'ECON237', 'الإقتصاد الإسلامي', 'ISLAMIC ECONOMICS', '0', ''];crList[crList.length] =
+		['275', '9998', 'ECON3311', 'الأقتصاد التحليلي الجزئي 1', 'ANALYTICAL MICROECONOMICS 1', '0', ''];crList[crList.length] =
+		['159', '16503', 'ECON636', 'الاقتصاد الزراعي', 'AGRICULTURAL ECONOMICS', '0', ''];crList[crList.length] =
+		['2787', '13667', 'EDUC431', 'المنهاج والتعليم', 'CURRICULUM AND TEACHING', '0', ''];crList[crList.length] =
+		['9233', '16798', 'EMBA631', 'محاسبة ادارية', 'MANAGERIAL ACCOUNTING', '0', ''];crList[crList.length] =
+		['9233', '16802', 'EMBA632', 'إدارة مالية', 'FINANCIAL MANAGEMENT', '0', ''];crList[crList.length] =
+		['276', '19945', 'ENAR4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['277', '5216', 'ENCE232', 'الاستاتيكا', 'STATICS', '0', ''];crList[crList.length] =
+		['277', '5220', 'ENCE233', 'مقاومة المواد', 'MECHANICS OF MATERIALS', '0', ''];crList[crList.length] =
+		['277', '16098', 'ENCE327', 'مساحة لطلبة هندسة العمارة والتخطيط الفراغي', 'SURVEYING FOR ARCHITECTURE AND PLANNING ENGINEERING', '0', ''];crList[crList.length] =
+		['277', '16959', 'ENCE3361', 'خرسانة مسلحة', 'REINFORCED CONCRETE DESIGN', '0', ''];crList[crList.length] =
+		['277', '19943', 'ENCE4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['277', '16103', 'ENCE4331', 'إدارة المشاريع 1', 'CONSTRUCTION MANAGEMENT 1', '0', ''];crList[crList.length] =
+		['277', '13297', 'ENCE5382', 'موضوع خاص: أنظمة المعلومات الجغرافية التطبيقية', 'SP.TOP:APPLIED GEOGRAPHIC INFORMATION SYSTEMS', '0', ''];crList[crList.length] =
+		['277', '15230', 'ENCE5383', 'موضوع خاص: تقييم الأثر البيئي', 'SP.TOP: ENVIRONMENTAL ASSESSMENT', '0', ''];crList[crList.length] =
+		['331', '7729', 'ENCS234', 'أنظمة رقمية', 'DIGITAL SYSTEMS', '0', ''];crList[crList.length] =
+		['331', '8913', 'ENCS238', 'تنظيم الحاسوب', 'COMPUTER ORGANIZATION', '0', ''];crList[crList.length] =
+		['331', '8914', 'ENCS311', 'مختبر لغة التجميع', 'ASSEMBLY LANGUAGE LABORATORY', '0', ''];crList[crList.length] =
+		['331', '8915', 'ENCS313', 'مختبر لينوكس', 'LINUX LABORATORY', '0', ''];crList[crList.length] =
+		['331', '8919', 'ENCS411', 'مختبر تطبيقات الحاسوب', 'COMPUTER DESIGN LAB', '0', ''];crList[crList.length] =
+		['331', '7730', 'ENCS413', 'مختبر شبكات حاسوب', 'COMPUTER NETWORKS LABORATORY', '0', ''];crList[crList.length] =
+		['331', '19863', 'ENCS4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['331', '3371', 'ENCS514', 'مختبر نظم الزمن الحقيقي', 'REAL-TIME SYSTEMS LAB', '0', ''];crList[crList.length] =
+		['331', '8381', 'ENCS515', 'مختبر متقدم في هندسة أنظمة الحاسوب', 'ADVANCED COMPUTER SYSTEMS ENGINEERING LABORATORY', '0', ''];crList[crList.length] =
+		['331', '3372', 'ENCS520', 'مقدمة مشروع التخرج', 'INTRODUCTION TO GRADUATION PROJECT', '0', ''];crList[crList.length] =
+		['331', '8924', 'ENCS521', 'أخلاقيات هندسة الحاسوب', 'COMPUTER ENGINGEERING ETHICS', '0', ''];crList[crList.length] =
+		['278', '14399', 'ENEE2301', 'الدوائر الكهربائية 1', 'NETWORK ANALYSIS 1', '0', ''];crList[crList.length] =
+		['278', '14406', 'ENEE2307', 'الاحتمالات والإحصاء الهندسي', 'PROBABILITY AND ENGINEERING STATISTICS', '0', ''];crList[crList.length] =
+		['278', '8937', 'ENEE236', 'الإلكترونيات التمثيلية', 'ANALOG ELECTRONICS', '0', ''];crList[crList.length] =
+		['278', '19862', 'ENEE4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['278', '14425', 'ENEE4302', 'أنظمة التحكم 1', 'CONTROL SYSTEMS 1', '0', ''];crList[crList.length] =
+		['333', '16638', 'ENGC1002', 'لغة انجليزية مستوى استدراكي 2', 'REMEDIAL ENGLISH II', '0', ''];crList[crList.length] =
+		['333', '16639', 'ENGC1201', 'لغة انجليزية مستوى متوسط 1', 'INTERMEDIATE ENGLISH I', '0', ''];crList[crList.length] =
+		['333', '16640', 'ENGC1202', 'لغة انجليزية مستوى متوسط 2', 'INTERMEDIATE ENGLISH II', '0', ''];crList[crList.length] =
+		['333', '16641', 'ENGC2201', 'لغة انجليزية مستوى متوسط 3', 'INTERMEDIATE ENGLISH III', '0', ''];crList[crList.length] =
+		['333', '16642', 'ENGC2202', 'لغة انجليزية مستوى متوسط 4', 'INTERMEDIATE ENGLISH IV', '0', ''];crList[crList.length] =
+		['333', '16643', 'ENGC2203', 'لغة انجليزية مستوى متقدم 1', 'ADVANCED ENGLISH I', '0', ''];crList[crList.length] =
+		['333', '16644', 'ENGC2204', 'لغة انجليزية مستوى متقدم 2', 'ADVANCED ENGLISH II', '0', ''];crList[crList.length] =
+		['333', '4351', 'ENGC233', 'اللغة الانكليزية من خلال موضوعات معاصرة', 'ENGLISH THROUGH CURRENT ISSUES', '0', ''];crList[crList.length] =
+		['333', '17927', 'ENGC2400', 'لغة انجليزية مستوى متوسط مكثف 2 ', 'INTENSIVE INTERMEDIATE ENGLISH 2 ', '0', ''];crList[crList.length] =
+		['333', '17928', 'ENGC2401', 'لغة انجليزية مستوى متقدم / مكثف', 'INTENSIVE ADVANCED ENGLISH', '0', ''];crList[crList.length] =
+		['333', '6180', 'ENGC332', 'اللغة الانجليزية من خلال محتويات تخصصية', 'ENGLISH THROUGH CONTENT AREAS', '0', ''];crList[crList.length] =
+		['280', '3833', 'ENGL233', 'الكتابة 1', 'WRITING 1', '0', ''];crList[crList.length] =
+		['280', '4418', 'ENGL237', 'علم تمثيل الاصوات الوظيفي', 'FUNCTIONAL PHONETICS', '0', ''];crList[crList.length] =
+		['280', '5627', 'ENGL331', 'الأدب الانجليزي 2', 'ENGLISH LITERATURE 2', '0', ''];crList[crList.length] =
+		['280', '6063', 'ENGL3321', 'بنية الرواية وتطورها', 'STRUCTURE AND DEVELOPMENT OF THE NOVEL', '0', ''];crList[crList.length] =
+		['280', '4420', 'ENGL336', 'علم النحو', 'SYNTAX', '0', ''];crList[crList.length] =
+		['2225', '9820', 'ENMC520', 'مقدمة مشروع التخرج', 'INTRODUCTION TO GRADUATION PROJECT', '0', ''];crList[crList.length] =
+		['281', '4913', 'ENME333', 'الديناميكا الحرارية', 'THERMODYNAMICS', '0', ''];crList[crList.length] =
+		['281', '19864', 'ENME4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['8295', '19946', 'ENPL4300', 'التدريب العملي', 'PRACTICAL TRAINING', '0', ''];crList[crList.length] =
+		['325', '18055', 'FINN1300', 'مبادىء الإدارة المالية 1', 'PRINCIPLES OF FINANCIAL MANAGEMENT 1', '0', ''];crList[crList.length] =
+		['325', '18056', 'FINN2300', 'مبادىء الإدارة المالية 2', 'PRINCIPLES OF FINANCIAL MANAGEMENT 2', '0', ''];crList[crList.length] =
+		['325', '7430', 'FINN232', 'التمويل العقاري', 'REAL ESTATE FINANCING', '0', ''];crList[crList.length] =
+		['325', '5448', 'FINN233', 'مباديء التأمين', 'PRINCIPLES OF INSURANCE', '0', ''];crList[crList.length] =
+		['325', '5449', 'FINN234', 'التشريعات المالية والمصرفية', 'FINANCIAL AND BANKING LEGISLATIONS', '0', ''];crList[crList.length] =
+		['325', '18059', 'FINN3302', 'النمذجة المالية', 'FINANCIAL MODELING', '0', ''];crList[crList.length] =
+		['328', '3649', 'GENS132', 'علوم طبيعية', 'PHYSICAL SCIENCE', '0', ''];crList[crList.length] =
+		['282', '3603', 'GEOG230', 'مدخل الى الجغرافية البشرية', 'INTRODUCTION TO HUMAN GEOGRAPHY', '0', ''];crList[crList.length] =
+		['282', '3624', 'GEOG338', 'جغرافية فلسطين', 'GEOGRAPHY OF PALESTINE', '0', ''];crList[crList.length] =
+		['602', '6965', 'GEOG631', 'كارتوغرافيا متقدمة', 'ADVANCED CARTOGRAPHY', '0', ''];crList[crList.length] =
+		['10317', '17917', 'GOVS7345', 'موضوع خاص 1', 'SPECIAL TOPIC 1', '0', ''];crList[crList.length] =
+		['348', '5751', 'HIST133', 'معالم الحضارة العربية الاسلامية', 'ARAB ISLAMIC CIVILIZATION', '0', ''];crList[crList.length] =
+		['348', '5716', 'HIST134', 'تاريخ فلسطين منذ القرن الثامن عشر', 'HISTORY OF PALESTINE SINCE 18TH CENTURY', '0', ''];crList[crList.length] =
+		['348', '5718', 'HIST231', 'مدخل لدراسة التاريخ', 'INTRODUCTION TO THE STUDY OF HISTORY', '0', ''];crList[crList.length] =
+		['8293', '15801', 'INRE432', 'دراسات إستراتيجية وأمنية', 'SECURITY AND STRATEGIC STUDIES', '0', ''];crList[crList.length] =
+		['267', '13422', 'JURI231', 'مصادر الإلتزام غير الإرادية', 'INVOLUNTARY SOURCES OF OBLIGATION', '0', ''];crList[crList.length] =
+		['267', '13423', 'JURI2311', 'أحكام الإلتزام', 'RULES OF OBLIGATION', '0', ''];crList[crList.length] =
+		['267', '6646', 'JURI233', 'مبادىء القانون التجاري', 'PRINCIPLES OF COMMERCIAL LAW', '0', ''];crList[crList.length] =
+		['267', '13425', 'JURI2341', 'الجرائم الواقعة على الأموال', 'CRIMES AGAINST PROPERTY', '0', ''];crList[crList.length] =
+		['267', '13427', 'JURI238', 'قانون الأحوال الشخصية 1', 'LAW OF PERSONAL STATUS  1', '0', ''];crList[crList.length] =
+		['267', '6652', 'JURI333', 'الأوراق التجارية والعمليات البنكية', 'COMMERCIAL PAPERS AND BANKING OPERATIONS', '0', ''];crList[crList.length] =
+		['267', '13431', 'JURI334', 'قانون الإجراءات الجنائية', 'CRIMINAL PROCEDURE LAW', '0', ''];crList[crList.length] =
+		['267', '13432', 'JURI338', 'قانون الأحوال الشخصية 2', 'LAW OF PERSONAL STATUS 2', '0', ''];crList[crList.length] =
+		['267', '13440', 'JURI421', 'قانون التنفيذ', 'LAW OF EXECUTION', '0', ''];crList[crList.length] =
+		['267', '13457', 'JURI4211', 'قانون التأمين', 'INSURANCE LAW', '0', ''];crList[crList.length] =
+		['267', '13461', 'JURI431', 'قانون البينات', 'LAW OF EVIDENCE', '0', ''];crList[crList.length] =
+		['267', '6641', 'JURI433', 'قانون الشركات', 'COMPANY LAW', '0', ''];crList[crList.length] =
+		['267', '16395', 'JURI4393', 'موضوع خاص: الملكية الفكرية', 'SP.TOP: INTELLECTUAL PROPERTY', '0', ''];crList[crList.length] =
+		['163', '14576', 'JURI633', 'قانون المنافسة', 'COMPETITION LAW', '0', ''];crList[crList.length] =
+		['163', '14579', 'JURI7315', 'قوانين الإيجار التمويلي والرهن العقاري', 'FINANCIAL LEASING AND MORTGAGE LAWS', '0', ''];crList[crList.length] =
+		['163', '15951', 'JURI7329', 'دراسات معمقة في قانون العمل', 'ADVANCED STUDIES IN LABOR LAW', '0', ''];crList[crList.length] =
+		['163', '15957', 'JURI7366', 'دراسات معمقة في القضاء الإداري', 'SPECIALIZED TOPICS IN ADMINISTRATIVE COURTS', '0', ''];crList[crList.length] =
+		['9594', '17204', 'LECO732', 'موضوعات مختارة في القانون والاقتصاد', 'SELECTED TOPICS IN LAW AND ECONOMICS', '0', ''];crList[crList.length] =
+		['284', '15680', 'MATH1321', 'التفاضل والتكامل 2', 'CALCULUS 2', '0', ''];crList[crList.length] =
+		['284', '6087', 'MATH234', 'مقدمة في الجبر الخطي', 'INTRODUCTION TO LINEAR ALGEBRA', '0', ''];crList[crList.length] =
+		['284', '15685', 'MATH2351', 'التفاضل والتكامل للأعمال والإقتصاد', 'CALCULUS FOR BUSINESS AND ECONOMICS', '0', ''];crList[crList.length] =
+		['284', '6095', 'MATH330', 'طرق التحليل  العددي', 'NUMERICAL METHODS', '0', ''];crList[crList.length] =
+		['284', '4440', 'MATH331', 'المعادلات التفاضلية العادية', 'ORDINARY DIFFERENTIAL EQUATIONS', '0', ''];crList[crList.length] =
+		['9094', '16612', 'MDJO331', 'النظريات الإعلامية', 'MEDIA THEORIES', '0', ''];crList[crList.length] =
+		['9094', '16635', 'MDJO439', 'موضوع خاص: السيمائية الاعلامية', 'SP.TOP: MEDIA SEMIOTICS', '0', ''];crList[crList.length] =
+		['662', '7288', 'MKET130', 'مبادىء التسويق 1', 'PRINCIPLES OF MARKETING 1', '0', ''];crList[crList.length] =
+		['662', '7297', 'MKET333', 'إدارة الدعاية والإعلان', 'ADVERTISING MANAGEMENT', '0', ''];crList[crList.length] =
+		['842', '16335', 'NURS222', 'الاسعاف الاولي', 'FIRST AID', '0', ''];crList[crList.length] =
+		['7992', '3650', 'PHED120', 'التربية الرياضية', 'PHYSICAL EDUCATION', '0', ''];crList[crList.length] =
+		['286', '4121', 'PHYS132', 'الفيزياء العامة 2', 'GENERAL PHYSICS 2', '0', ''];crList[crList.length] =
+		['286', '4092', 'PHYS411', 'ندوة في الفيزياء', 'SEMINAR IN PHYSICS', '0', ''];crList[crList.length] =
+		['289', '4904', 'POLS231', 'مقدمة في العلوم السياسية', 'INTRODUCTION TO POLITICAL SCIENCE', '0', ''];crList[crList.length] =
+		['289', '6600', 'POLS236', 'النظام السياسي الفلسطيني', 'PALESTINIAN POLITICAL SYSTEM', '0', ''];crList[crList.length] =
+		['289', '6621', 'POLS238', 'نظرية العلاقات الدولية', 'THEORY OF INTERNATIONAL RELATIONS', '0', ''];crList[crList.length] =
+		['289', '6624', 'POLS334', 'القضية الفلسطينية 2', 'PALESTINIAN QUESTION 2', '0', ''];crList[crList.length] =
+		['289', '6631', 'POLS431', 'الإتحاد الأوروبي', 'EUROPEAN UNION', '0', ''];crList[crList.length] =
+		['289', '6633', 'POLS432', 'السياسة المقارنة /الأقاليم الدولية', 'COMPARATIVE POLITICS (INTERNATIONAL REGIONS)', '0', ''];crList[crList.length] =
+		['2788', '11204', 'PSYC335', 'فسيولوجية السلوك', 'PSYCHOPHYSIOLOGY', '0', ''];crList[crList.length] =
+		['2788', '11206', 'PSYC337', 'الصحة النفسية', 'MENTAL HEALTH', '0', ''];crList[crList.length] =
+		['2788', '11211', 'PSYC431', 'علم نفس الشخصية', 'PSYCHOLOGY OF PERSONALITY', '0', ''];crList[crList.length] =
+		['266', '19079', 'PUBA135', 'أساليب البحث في الإدارة العامة', 'RESEARCH METHODS IN PUBLIC ADMINISTRATION', '0', ''];crList[crList.length] =
+		['266', '7529', 'PUBA232', 'مقدمة في السياسة العامة', 'INTRODUCTION TO PUBLIC POLICY', '0', ''];crList[crList.length] =
+		['266', '19083', 'PUBA234', 'الرقابة الإدارية', 'ADMINISTRATIVE AUDIT AND CONTROL', '0', ''];crList[crList.length] =
+		['266', '7612', 'PUBA238', 'الإدارة العامة المقارنة', 'COMPARATIVE  PUBLIC ADMINISTRATION', '0', ''];crList[crList.length] =
+		['266', '7616', 'PUBA331', 'الإدارة الاستراتيجية', 'STRATEGIC MANAGEMENT', '0', ''];crList[crList.length] =
+		['266', '7617', 'PUBA332', 'إدارة الموارد البشرية في القطاع العام', 'HUMAN RESOURCES MANAGEMENT', '0', ''];crList[crList.length] =
+		['266', '7618', 'PUBA333', 'تنمية المهارات القيادية', 'LEADERSHIP SKILLS DEVELOPMENT', '0', ''];crList[crList.length] =
+		['266', '19082', 'PUBA3391', 'نصوص وقراءات ادارية باللغة الإنجليزية', 'PUBLIC ADMINISTRATION TERMINOLOGY', '0', ''];crList[crList.length] =
+		['266', '9633', 'PUBA411', 'التدريب العملي', 'INTERNSHIP', '0', ''];crList[crList.length] =
+		['266', '7627', 'PUBA435', 'النزاهة والمساءلة في القطاع العام', 'TRANSPARENCY/ACCOUNTABILITY IN THE PUBLIC SECTOR', '0', ''];crList[crList.length] =
+		['352', '15692', 'STAT2311', 'الإحصاء 1', 'STATISTICS 1', '0', ''];crList[crList.length] =
+		['352', '15693', 'STAT2361', 'الإحصاء للأعمال والإقتصاد', 'STATISTICS FOR BUSINESS AND ECONOMICS', '0', ''];crList[crList.length] =
+		['352', '15697', 'STAT3321', 'نظرية الإحتمالات', 'PROBABILITY THEORY', '0', ''];crList[crList.length] =
+		['7953', '15500', 'SWEN830', 'حلقة بحث 1', 'SEMINAR 1', '0', ''];crList[crList.length] =
+		['7953', '15501', 'SWEN831', 'حلقة بحث 2', 'SEMINAR 2', '0', ''];crList[crList.length] =
+		['13880', '5516', 'TRAN330', 'مدخل الى الترجمة', 'INTRODUCTION TO TRANSLATION', '0', ''];crList[crList.length] =
+		['13880', '4668', 'TRAN331', 'تدريبات في الترجمة العامة', 'PRACTICE IN GENERAL TRANSLATION', '0', ''];crList[crList.length] =
+		['13880', '6078', 'TRAN334', 'ترجمة نصوص صحفية', 'TRANSLATION OF JOURNALISTIC TEXTS', '0', ''];crList[crList.length] =
+		['13880', '6077', 'TRAN433', 'ترجمة شفوية', 'INTERPRETING', '0', ''];crList[crList.length] =
+		['13880', '6080', 'TRAN435', 'ترجمة نصوص قانونية', 'TRANSLATION OF LEGAL TEXTS', '0', ''];crList[crList.length] =
+		['13880', '6081', 'TRAN436', 'ترجمة نصوص دبلوماسية وسياسية', 'TRANSLATION OF DIPLOMATIC AND POLITICAL TEXTS', '0', ''];crList[crList.length] =
+		['133', '6232', 'WEEN718', 'طرق البحث العلمي', 'SCIENTIFIC RESEARCH METHODS', '0', ''];crList[crList.length] =
+		['133', '6244', 'WEEN831', 'حلقة بحث 2', 'SEMINAR 2', '0', ''];crList[crList.length] =
+		['188', '20183', 'WESC231', 'مقدمة إلى البيئة والمجتمع', 'INTRODUCTION TO ENVIRONMENT AND SOCIETY', '0', ''];
+		var regHTML = ''; var schedHTML = '';var cartHTML = '';var finalHTML = '';var activeTab = '';var serverReq = 0;var userRole = "S";var student = 1173056;var term = 1194;var document_id = 6106662;var mode = "AD";var has_plan = 1;var is_summer = 1; var student_bu = 277; var has_advisory_plan = 1; var student_major_plan = '4849'; var reg_masari_p = 0; var show_plan_p = 1;
+	// -->
+	</script>
+
+        <script>
+        if(!highlightTableTime) {
+            function highlightTableTime(tableId) {
+                for (var i = 1; i < arguments.length; i++) {
+                    var slotInfo = arguments[i].split('|');
+                    var d = slotInfo[0], st = slotInfo[1], et = slotInfo[2], content = (slotInfo[3] ? slotInfo[3] : '&nbsp;');
+                    var start_edge = ((st - (7 * 60 * 60)) * 7) / (60 * 5) + 84;
+                    var class_width = ((et - st) * 7) / (60 * 5);
+                    var highlightContent = "<div class='meeting highlight " + d + st + et + "' style='width:" + class_width + "px;color:#fff;background-color:#333;left:" + start_edge + "px;top:0px;'>" + content + "</div>";
+                    $('div[class^="schedule' + tableId + '"] .schedule-day-' + d).append(highlightContent);
+                }
+            }
+        }
+        if(!removeTableTime) {
+            function removeTableTime(tableId) {
+                for (var i = 1; i < arguments.length; i++) {
+                    var slotInfo = arguments[i].split('|');
+                    var d = slotInfo[0], st = slotInfo[1], et = slotInfo[2], content = (slotInfo[3] ? slotInfo[3] : '&nbsp;');
+
+                    var start_edge = ((st - (7 * 60 * 60)) * 7) / (60 * 5) + 84;
+                    var class_width = ((et - st) * 7) / (60 * 5);
+                    var highlightContent = "<div class='meeting' style='width:" + class_width + "px;background-color:#333;left:" + start_edge + "px;top:0px;'>" + content + "</div>";
+                    $('div[class^="schedule' + tableId + '"] .schedule-day-' + d).find('div.meeting.highlight.' + d + st + et).remove();
+                }
+            }
+        }
+        </script>
+
+
+	<link rel="stylesheet" type="text/css" href="/resources/ext-1.0.1/resources/css/ext-all.css"/>
+	<link rel="stylesheet" type="text/css" href="/resources/ext-1.0.1/resources/css/ytheme-gray.css"/>
+	<script type="text/javascript" src="/resources/ext-1.0.1/adapter/yui/yui-utilities.js"></script>
+	<script type="text/javascript" src="/resources/ext-1.0.1/adapter/yui/ext-yui-adapter.js"></script>
+	<script type="text/javascript" src="/resources/ext-1.0.1/ext-all.js"></script>
+	<script type="text/javascript" src="ext.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			if (1 > 0) {
+			    showAdvisoryPlan(4849);
+			} else if ('4849' != '') {
+    			showPlan(4849);
+			} else if ('277' != '') {
+			    selectBuCourses(277, true);
+			}
+			$('#dialog').hide();
+			$("#deleted-courses").click(function() {
+				$('#dialog').text('');
+				$('#dialog').load('deleted-courses',
+					{
+						'student_id' : 1173056,
+						'term_id' : 1194
+					}
+				);
+				$('#dialog').dialog({
+					modal: true,
+					title: 'عرض المساقات المحذوفة',
+					width: 900,
+					height: 400,
+					position: { my: "center", at: "center", of: "#reg-div"},
+					buttons: { إغلاق: function() { $(this).dialog("close"); } }
+				});
+			});
+			$(document).on('click', '.show-course-prerequisite', function(e) {
+			    e.preventDefault();
+				$('#dialog').text('');
+				$('#dialog').load($(this).attr('href') + '&include_master_p=0');
+				$('#dialog').dialog({
+					modal: true,
+					title: 'المتطلبات السابقة',
+					width: 900,
+					height: 400,
+					position: { my: "center", at: "center", of: "#reg-div"},
+					buttons: { إغلاق: function() { $(this).dialog("close"); } }
+				});
+			});
+
+			if (1194 <= 1193 && 1 == 0) {
+			    $('#dialog').html("<h2 style='direction: rtl; text-align: center'>أرجو الانتباه بأن هذا الطالب غير مثبت تسجيله</h2>");
+
+			    $('#dialog').dialog({
+                    modal: true,
+                    title: 'غير مثبت التسجيل',
+                    width: 700,
+                    height: 175,
+					position: { my: "center", at: "center", of: "#reg-div"},
+                    buttons: { إغلاق: function() { $(this).dialog("close"); } }
+                });
+			}
+		});
+	</script>
+
+    </head>
+    <body dir="rtl" class="rtl" >
+
+            <div class="master-header" dir="rtl">
+                <div class="header-top">
+                    <a class="ritaj-logo" href="/">
+                        <img src="/images/ritaj-logo.png" />
+                    </a>
+                    <div class="site-name">
+                        البوابة الأكاديمية والإدارية لجامعة بيرزيت
+                        <div class="print-header">
+                            <br/>
+                            غازي حسن |
+                            June 19, 2020 21:11 | 93.175.11.224
+                        </div>
+                    </div>
+                    <div class="user-area">
+
+                            <ul class="user-menu" data-step="1" data-intro="روابط المستخدم">
+                                <li>
+                                    <a data-load-part="chats" href="/chat/">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-comments-o fa-2x"></i>
+                                        <div class="menu-title">محادثة</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="notifications" href="#">
+                                        <i class="fa fa-circle notification-icon" style="left: 5px;"></i>
+                                        <i class="fa fa-bell fa-2x"></i>
+                                        <div class="menu-title">اشعارات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="boards" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-newspaper-o fa-2x"></i>
+                                        <div class="menu-title">اعلانات</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="messages" href="#" class="notification-star">
+                                        <i class="fa fa-circle notification-icon" style="left: 0px;"></i>
+                                        <i class="fa fa-envelope fa-2x"></i>
+                                        <div class="menu-title">رسائل</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                                <li>
+                                    <a data-load-part="account" href="#">
+                                        <i class="fa fa-user fa-2x"></i>
+                                        <div class="menu-title">حسابي</div>
+                                    </a>
+                                    <i class="fa fa-caret-up fa-2x open-indicator" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            <div class="user-menu-loaded-parts"></div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-bottom clearfix">
+
+                        <div class="search-form">
+
+                                <input type="text" id="srch_menu" autocomplete="off" size="50" dir="rtl" placeholder="ابدأ بالكتابة للبحث في القوائم"  data-step="4" data-intro="بحث عن روابط رتاج"/>
+
+                        </div>
+
+                </div>
+            </div>
+
+        <div id="slave" style="clear:both;" data-step="3" data-intro="روابط وصفحات الصناديق الرئيسية">
+			<!--[if lt IE 11]>
+                <p class="wbr" style="text-align: center; font-weight: bold; color: red; background-color:#FEFF8F; padding:0.2em; margin:0.4em;">
+                   أنت تستخدم متصفح <strong>غير مدعوم</strong>  <br /> نرجو <a target='_blank' href='http://browsehappy.com/'> تحديث المتصفح </a> من أجل استخدام أفضل لريتاج.
+                </p>
+            <![endif]-->
+            <!-- Content Content Start -->
+
+
+<div id="dialog"></div>
+<div class="trcorner">
+	<blink>إقرأ --></blink>
+	<a href="#" onclick="doOpen('instructions');">تعليمات التسجيل</a>
+</div>
+<script type="text/javascript">
+    if (ClBr() == 'IE') {
+        document.write('<br/>');
+    }
+</script>
+
+<h1 align="center">الدورة الصيفية الثانية 2019/2020</h1>
+
+
+	<div id="reg_fees" style="display: none; font-size: 14pt; color: red">نود إعلامك بأنه سيترتب عليك رسوم تسجيل قيمتها 60 دينار عند التسجيل لدورة صيفية واحدة و 70 دينار عند التسجيل للدورتين، علمًا أن هذه الرسوم غير مستردة في حال تم إلغاء التسجيل أو الانسحاب لاحقًا</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#reg_fees').dialog({
+				modal: true,
+				title: 'رسوم التسجيل',
+				width: 700,
+				height: 200,
+				position: { my: "center", at: "center", of: "#reg-div"},
+				buttons: {
+					أوافـــق: function() { $(this).dialog("close"); } ,
+					أرفــــض: function() { document.location = '/' }
+				}
+			});
+		});
+	</script>
+
+
+<div id="reg-div" style="width:100%; height:88%"></div>
+
+<div id="south-div">
+    <div id="footer">
+    	<div id="footer-main" class=holder>
+    		<div class=tl>
+    			<ul>
+        			<li id="li-sched"><a href="#" onclick="activate('sched');">الجدول الاسبوعي</a></li>
+        			<li id="li-reg"><a href="#" onclick="activate('reg');">المساقات المسجلة</a></li>
+        			<li id="li-cart"><a href="#" onclick="activate('cart');">حركات التسجيل</a></li>
+
+        			<li id="sc-hours"></li>
+    			</ul>
+    		</div>
+    		<div class="tl" style="border: none;">
+    			<a href=# title="Refresh" onclick="refreshFooter(activeTab);"><b>تحديث</b></a>
+    		</div>
+    		<div align="center" id="color-map">&nbsp;</div>
+    		<div id="sched" class="menu"></div>
+    		<div id="reg" class="menu"></div>
+    		<div id="cart" class="menu"></div>
+
+    	</div>
+    </div>
+</div>
+
+<div id="east-div" style="padding:2px;">
+    <table width="100%">
+        <tr>
+            <td>
+                <b>أدخل أحرف من اسم مساق للبحث عنه:</b>
+                <input autocomplete="off" size="46" type="text" id="course" name="course" Value=""
+                	onchange="this.selected=true;" /><br>
+
+                <script language="JavaScript">
+                	new actbReg('course', crList, 'course', "selectOneCourse(ById('course').value,true);");
+                	ById('course').onfocus = ById('course').onclick = function () { this.select(); }
+                </script>
+                <br />
+            </td>
+        </tr>
+
+            <tr>
+                <td>
+                    <b><!-- <a href=# onclick="selectBuCourses(277,true);">مساقات الدائرة</a> | -->
+        		      <a href=# onclick="showPlan(4849)">خطة الطالب</a>
+                       |<a href=# onclick="showAdvisoryPlan(4849)">الخطة الإرشادية</a>
+                    </b>
+                    <br /><br />
+                </td>
+            </tr>
+
+        <tr>
+            <td>
+                <div id="bu_tree" style="display: block;" dir="rtl">
+
+        <script type='text/javascript' src='/resources/jquery/jquery.cookie.js'></script>
+        <script type='text/javascript' src='/resources/jquery/treeview/jquery.treeview.js'></script>
+        <link rel='stylesheet' href='/resources/jquery/treeview/jquery.treeview.css' type='text/css' media='screen' />
+		<div id='treecontrol' class='bb'>
+			<a title='Collapse the entire tree below' href='#'>Collapse All</a> |
+			<a title='Expand the entire tree below' href='#'>Expand All</a>
+		</div>
+        <script type='text/javascript'>
+            $(function(){
+                $('#treeview_div').treeview({
+					animated: 'medium',
+                    persist: 'cookie',
+                    cookieId: 'treeview-pers',
+					control: '#treecontrol'
+                });
+            });
+        </script>
+
+     <div id='treeview_div' align='left' dir='ltr'> <ul><li id='0'><span id='lbu_0' bu_id='0'><b>استعراض حسب الكليات و الدوائر</b></span><ul><li id='113'><span  dir='rtl' id='lbu_113' bu_id='113'>كلية الأعمال والاقتصاد &nbsp;</span>&nbsp;<ul><li id='100'><span  dir='rtl' id='lbu_100' bu_id='100'>دائرة المحاسبة &nbsp;</span>&nbsp;<ul><li id='268'><span  dir='rtl' id='lbu_268' bu_id='268'>برنامج بكالوريوس المحاسبة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5238);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(268,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='296'><span  dir='rtl' id='lbu_296' bu_id='296'>برنامج فرعي المحاسبة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(117);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='108'><span  dir='rtl' id='lbu_108' bu_id='108'>دائرة إدارة الاعمال &nbsp;</span>&nbsp;<ul><li id='299'><span  dir='rtl' id='lbu_299' bu_id='299'>برنامج فرعي إدارة الاعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(1213);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='324'><span  dir='rtl' id='lbu_324' bu_id='324'>برنامج بكالوريوس إدارة الاعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5242);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(324,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='662'><span  dir='rtl' id='lbu_662' bu_id='662'>برنامج بكالوريوس التسويق &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5243);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(662,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='682'><span  dir='rtl' id='lbu_682' bu_id='682'>برنامج فرعي التسويق &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(1273);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='123'><span  dir='rtl' id='lbu_123' bu_id='123'>دائرة الإقتصاد &nbsp;</span>&nbsp;<ul><li id='159'><span  dir='rtl' id='lbu_159' bu_id='159'>برنامج ماجستير الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3748);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(159,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='275'><span  dir='rtl' id='lbu_275' bu_id='275'>برنامج بكالوريوس الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5244);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(275,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='302'><span  dir='rtl' id='lbu_302' bu_id='302'>برنامج فرعي الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4328);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='1521'><span  dir='rtl' id='lbu_1521' bu_id='1521'>برنامج بكالوريوس اقتصاد الأعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5245);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='156'><span  dir='rtl' id='lbu_156' bu_id='156'>برنامج ماجستير إدارة الأعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3067);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(156,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='560'><span  dir='rtl' id='lbu_560' bu_id='560'>دائرة العلوم المالية والمصرفية &nbsp;</span>&nbsp;<ul><li id='209'><span  dir='rtl' id='lbu_209' bu_id='209'>برنامج فرعي العلوم المالية والمصرفية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4392);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='325'><span  dir='rtl' id='lbu_325' bu_id='325'>برنامج بكالوريوس العلوم المالية والمصرفية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5246);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(325,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='11419'><span  dir='rtl' id='lbu_11419' bu_id='11419'>برنامج بكالوريوس العلوم المالية الاكتوارية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5247);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='7214'><span  dir='rtl' id='lbu_7214' bu_id='7214'>برنامج التعليم التعاوني &nbsp;</span>&nbsp;</li><li id='9233'><span  dir='rtl' id='lbu_9233' bu_id='9233'>برنامج ماجستير إدارة الأعمال التنفيذي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3928);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(9233,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='138'><span  dir='rtl' id='lbu_138' bu_id='138'>كلية الدراسات العليا &nbsp;</span>&nbsp;<ul><li id='101'><span  dir='rtl' id='lbu_101' bu_id='101'>برنامج ماجستير الإحصاء التطبيقي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2987);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='133'><span  dir='rtl' id='lbu_133' bu_id='133'>برنامج ماجستير هندسة المياه والبيئة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2053);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(133,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='149'><span  dir='rtl' id='lbu_149' bu_id='149'>برنامج ماجستير الصحة العامة والمجتمعية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5331);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(149,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='152'><span  dir='rtl' id='lbu_152' bu_id='152'>برنامج ماجستير الدراسات الدولية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4208);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='158'><span  dir='rtl' id='lbu_158' bu_id='158'>برنامج ماجستير الديمقراطية وحقوق الإنسان &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4931);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(158,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='188'><span  dir='rtl' id='lbu_188' bu_id='188'>برنامج ماجستير علوم المياه والبيئة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2413);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(188,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='480'><span  dir='rtl' id='lbu_480' bu_id='480'>برنامج ماجستير دراسات النوع الاجتماعي والتنمية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2697);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7069'><span  dir='rtl' id='lbu_7069' bu_id='7069'>برنامج دكتوراه العلوم الاجتماعية &nbsp;</span>&nbsp;</li><li id='7572'><span  dir='rtl' id='lbu_7572' bu_id='7572'>برنامج ماجستير الدراسات الإسرائيلية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4228);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='11500'><span  dir='rtl' id='lbu_11500' bu_id='11500'>برنامج ماجستير الإحصاء التطبيقي وعلم البيانات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4651);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(11500,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='13879'><span  dir='rtl' id='lbu_13879' bu_id='13879'>برنامج ماجستير ماجستير دراسات الهجرة الدولية واللجوء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5711);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='174'><span  dir='rtl' id='lbu_174' bu_id='174'>كلية العلوم &nbsp;</span>&nbsp;<ul><li id='106'><span  dir='rtl' id='lbu_106' bu_id='106'>دائرة الأحياء والكيمياء الحيوية &nbsp;</span>&nbsp;<ul><li id='270'><span  dir='rtl' id='lbu_270' bu_id='270'>برنامج بكالوريوس الأحياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5251);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='298'><span  dir='rtl' id='lbu_298' bu_id='298'>برنامج فرعي الكيمياء الحيوية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4513);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='323'><span  dir='rtl' id='lbu_323' bu_id='323'>برنامج مساقات العلوم الطبيعية &nbsp;</span>&nbsp;</li><li id='7932'><span  dir='rtl' id='lbu_7932' bu_id='7932'>برنامج ماجستير الأحياء البيئية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3229);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9013'><span  dir='rtl' id='lbu_9013' bu_id='9013'>برنامج بكالوريوس رئيسي الأحياء / فرعي الكيمياء الحيوية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5252);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9014'><span  dir='rtl' id='lbu_9014' bu_id='9014'>برنامج بكالوريوس رئيسي الأحياء / فرعي إدارة الأعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4814);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9015'><span  dir='rtl' id='lbu_9015' bu_id='9015'>برنامج بكالوريوس رئيسي الأحياء / فرعي التسويق &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4815);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9016'><span  dir='rtl' id='lbu_9016' bu_id='9016'>برنامج بكالوريوس رئيسي الأحياء / فرعي الآثار &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4816);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9020'><span  dir='rtl' id='lbu_9020' bu_id='9020'>برنامج فرعي الأحياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3735);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10195'><span  dir='rtl' id='lbu_10195' bu_id='10195'>برنامج بكالوريوس رئيسي الاحياء / فرعي التغذية والحمية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5254);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='110'><span  dir='rtl' id='lbu_110' bu_id='110'>دائرة الكيمياء &nbsp;</span>&nbsp;<ul><li id='135'><span  dir='rtl' id='lbu_135' bu_id='135'>مشغل ورشة الزجاج &nbsp;</span>&nbsp;</li><li id='272'><span  dir='rtl' id='lbu_272' bu_id='272'>برنامج بكالوريوس الكيمياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5255);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(272,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='300'><span  dir='rtl' id='lbu_300' bu_id='300'>برنامج فرعي الكيمياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4520);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='326'><span  dir='rtl' id='lbu_326' bu_id='326'>برنامج الكيمياء التطبيقية &nbsp;</span>&nbsp;</li><li id='328'><span  dir='rtl' id='lbu_328' bu_id='328'>برنامج مساقات العلوم الطبيعية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(328,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='1581'><span  dir='rtl' id='lbu_1581' bu_id='1581'>برنامج ماجستير الكيمياء التطبيقية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5391);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(1581,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='7352'><span  dir='rtl' id='lbu_7352' bu_id='7352'>برنامج بكالوريوس رئيسي الكيمياء / فرعي ادارة الأعمال &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5751);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7353'><span  dir='rtl' id='lbu_7353' bu_id='7353'>برنامج بكالوريوس رئيسي الكيمياء / فرعي التسويق &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4819);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7354'><span  dir='rtl' id='lbu_7354' bu_id='7354'>برنامج بكالوريوس رئيسي الكيمياء / فرعي الكيمياء الحيوية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5258);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10207'><span  dir='rtl' id='lbu_10207' bu_id='10207'>برنامج بكالوريوس رئيسي الكيمياء / فرعي التغذية والحمية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5259);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='155'><span  dir='rtl' id='lbu_155' bu_id='155'>دائرة الرياضيات &nbsp;</span>&nbsp;<ul><li id='213'><span  dir='rtl' id='lbu_213' bu_id='213'>برنامج بكالوريوس الرياضيات التطبيقية في الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5260);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='284'><span  dir='rtl' id='lbu_284' bu_id='284'>برنامج بكالوريوس الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5261);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(284,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='308'><span  dir='rtl' id='lbu_308' bu_id='308'>برنامج فرعي الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4558);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='352'><span  dir='rtl' id='lbu_352' bu_id='352'>برنامج فرعي الاحصاء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3374);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(352,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='742'><span  dir='rtl' id='lbu_742' bu_id='742'>برنامج ماجستير الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2396);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(742,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='1582'><span  dir='rtl' id='lbu_1582' bu_id='1582'>برنامج بكالوريوس رئيسي الرياضيات / فرعي الإحصاء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4823);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8133'><span  dir='rtl' id='lbu_8133' bu_id='8133'>برنامج بكالوريوس رئيسي الرياضيات / فرعي علم الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5263);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8134'><span  dir='rtl' id='lbu_8134' bu_id='8134'>برنامج بكالوريوس رئيسي الرياضيات / فرعي الاقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4825);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8135'><span  dir='rtl' id='lbu_8135' bu_id='8135'>برنامج بكالوريوس رئيسي الرياضيات / فرعي العلوم المالية والمصرفية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5265);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='168'><span  dir='rtl' id='lbu_168' bu_id='168'>دائرة الفيزياء &nbsp;</span>&nbsp;<ul><li id='286'><span  dir='rtl' id='lbu_286' bu_id='286'>برنامج بكالوريوس الفيزياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5268);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(286,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='385'><span  dir='rtl' id='lbu_385' bu_id='385'>برنامج بكالوريوس رئيسي الفيزياء / فرعي الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5269);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='386'><span  dir='rtl' id='lbu_386' bu_id='386'>برنامج بكالوريوس رئيسي الفيزياء / فرعي علم الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4829);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='387'><span  dir='rtl' id='lbu_387' bu_id='387'>برنامج بكالوريوس رئيسي الفيزياء / فرعي الالكترونيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5271);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='388'><span  dir='rtl' id='lbu_388' bu_id='388'>برنامج فرعي الفيزياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4568);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='1703'><span  dir='rtl' id='lbu_1703' bu_id='1703'>برنامج ماجستير الفيزياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(1814);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li></ul></li><li id='212'><span  dir='rtl' id='lbu_212' bu_id='212'>كلية الحقوق والإدارة العامة &nbsp;</span>&nbsp;<ul><li id='191'><span  dir='rtl' id='lbu_191' bu_id='191'>دائرة الإدارة العامة &nbsp;</span>&nbsp;<ul><li id='266'><span  dir='rtl' id='lbu_266' bu_id='266'>برنامج بكالوريوس الإدارة العامة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5272);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(266,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='633'><span  dir='rtl' id='lbu_633' bu_id='633'>برنامج فرعي الادارة العامة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4935);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7912'><span  dir='rtl' id='lbu_7912' bu_id='7912'>برنامج بكالوريوس رئيسي الإدارة العامة / فرعي الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5273);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7913'><span  dir='rtl' id='lbu_7913' bu_id='7913'>برنامج بكالوريوس رئيسي الإدارة العامة / فرعي العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5274);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8554'><span  dir='rtl' id='lbu_8554' bu_id='8554'>برنامج فرعي علوم الدولة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4936);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='192'><span  dir='rtl' id='lbu_192' bu_id='192'>دائرة القانون &nbsp;</span>&nbsp;<ul><li id='163'><span  dir='rtl' id='lbu_163' bu_id='163'>برنامج ماجستير القانون &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3468);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(163,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='267'><span  dir='rtl' id='lbu_267' bu_id='267'>برنامج بكالوريوس القانون &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5275);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(267,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='13519'><span  dir='rtl' id='lbu_13519' bu_id='13519'>برنامج ماجستير القانون العام &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5571);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='13599'><span  dir='rtl' id='lbu_13599' bu_id='13599'>برنامج ماجستير القانون الخاص &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5611);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='210'><span  dir='rtl' id='lbu_210' bu_id='210'>دائرة العلوم السياسية &nbsp;</span>&nbsp;<ul><li id='289'><span  dir='rtl' id='lbu_289' bu_id='289'>برنامج العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(289,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='389'><span  dir='rtl' id='lbu_389' bu_id='389'>برنامج بكالوريوس رئيسي العلوم السياسية / فرعي الإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5276);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='390'><span  dir='rtl' id='lbu_390' bu_id='390'>برنامج بكالوريوس رئيسي العلوم السياسية / فرعي الادارة العامة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5277);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='391'><span  dir='rtl' id='lbu_391' bu_id='391'>برنامج فرعي العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(920);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7974'><span  dir='rtl' id='lbu_7974' bu_id='7974'>برنامج بكالوريوس رئيسي العلوم السياسية / فرعي دراسات المرأة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5278);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7975'><span  dir='rtl' id='lbu_7975' bu_id='7975'>برنامج بكالوريوس رئيسي العلوم السياسية / فرعي الفلسفة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5279);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8293'><span  dir='rtl' id='lbu_8293' bu_id='8293'>برنامج فرعي علاقات دولية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3448);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(8293,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='8294'><span  dir='rtl' id='lbu_8294' bu_id='8294'>برنامج بكالوريوس رئيسي العلوم السياسية / فرعي علاقات دولية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5280);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='9594'><span  dir='rtl' id='lbu_9594' bu_id='9594'>برنامج ماجستير القانون والاقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4173);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(9594,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='10317'><span  dir='rtl' id='lbu_10317' bu_id='10317'>برنامج ماجستير الحكومة والحكم المحلي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4308);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(10317,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='664'><span  dir='rtl' id='lbu_664' bu_id='664'>كلية الصيدلة والتمريض والمهن الصحية &nbsp;</span>&nbsp;<ul><li id='157'><span  dir='rtl' id='lbu_157' bu_id='157'>برنامج ماجستير العلوم الطبية المخبرية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5451);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='666'><span  dir='rtl' id='lbu_666' bu_id='666'>دائرة التمريض &nbsp;</span>&nbsp;<ul><li id='842'><span  dir='rtl' id='lbu_842' bu_id='842'>برنامج بكالوريوس التمريض &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5281);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(842,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='13359'><span  dir='rtl' id='lbu_13359' bu_id='13359'>برنامج ماجستير تمريض الأورام &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5531);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='668'><span  dir='rtl' id='lbu_668' bu_id='668'>دائرة التغذية والحمية &nbsp;</span>&nbsp;<ul><li id='841'><span  dir='rtl' id='lbu_841' bu_id='841'>برنامج بكالوريوس التغذية والحمية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5282);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9154'><span  dir='rtl' id='lbu_9154' bu_id='9154'>برنامج فرعي التغذية والحمية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4192);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='672'><span  dir='rtl' id='lbu_672' bu_id='672'>دائرة الصيدلة &nbsp;</span>&nbsp;<ul><li id='3029'><span  dir='rtl' id='lbu_3029' bu_id='3029'>برنامج بكالوريوس دكتور صيدلي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5283);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8239'><span  dir='rtl' id='lbu_8239' bu_id='8239'>برنامج ماجستير تكنولوجيا الصناعة الدوائية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3369);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='4268'><span  dir='rtl' id='lbu_4268' bu_id='4268'>دائرة علاج النطق والسمع &nbsp;</span>&nbsp;<ul><li id='4269'><span  dir='rtl' id='lbu_4269' bu_id='4269'>برنامج بكالوريوس علاج النطق والسمع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5284);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='8794'><span  dir='rtl' id='lbu_8794' bu_id='8794'>معهد معهد سميح دروزة للصناعات الدوائية &nbsp;</span>&nbsp;</li></ul></li><li id='2186'><span  dir='rtl' id='lbu_2186' bu_id='2186'>كلية التربية &nbsp;</span>&nbsp;<ul><li id='2770'><span  dir='rtl' id='lbu_2770' bu_id='2770'>دائرة المناهج والتعليم &nbsp;</span>&nbsp;<ul><li id='2787'><span  dir='rtl' id='lbu_2787' bu_id='2787'>برنامج التربية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(2787,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='2789'><span  dir='rtl' id='lbu_2789' bu_id='2789'>برنامج ماجستير التربية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5771);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(2789,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='2790'><span  dir='rtl' id='lbu_2790' bu_id='2790'>برنامج دبلوم التأهيل التربوي / مسار تعليم التخصص &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2237);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2792'><span  dir='rtl' id='lbu_2792' bu_id='2792'>برنامج دبلوم التأهيل التربوي / المسار  العام &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2236);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2847'><span  dir='rtl' id='lbu_2847' bu_id='2847'>برنامج بكالوريوس معلم المرحلة الأساسية العليا - تعليم الاجتماعيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5285);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2848'><span  dir='rtl' id='lbu_2848' bu_id='2848'>برنامج بكالوريوس معلم المرحلة الأساسية العليا - تعليم العلوم &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4845);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2849'><span  dir='rtl' id='lbu_2849' bu_id='2849'>برنامج بكالوريوس معلم المرحلة الأساسية العليا - تعليم الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3393);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2850'><span  dir='rtl' id='lbu_2850' bu_id='2850'>برنامج بكالوريوس معلم المرحلة الأساسية العليا - تعليم التكنولوجيا &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2274);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='5687'><span  dir='rtl' id='lbu_5687' bu_id='5687'>برنامج دبلوم التأهيل التربوي للمرحلة الأساسية العليا / مسار تعليم التخصص &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2633);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='5688'><span  dir='rtl' id='lbu_5688' bu_id='5688'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية / مسار تعليم التخصص &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2634);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7534'><span  dir='rtl' id='lbu_7534' bu_id='7534'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم اللغة العربية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3488);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7535'><span  dir='rtl' id='lbu_7535' bu_id='7535'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم اللغة الفرنسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3489);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7536'><span  dir='rtl' id='lbu_7536' bu_id='7536'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم تكنولوجيا المعلومات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3490);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7537'><span  dir='rtl' id='lbu_7537' bu_id='7537'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الفيزياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3492);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7538'><span  dir='rtl' id='lbu_7538' bu_id='7538'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الأحياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3493);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7539'><span  dir='rtl' id='lbu_7539' bu_id='7539'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الإدارة والإقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3494);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7540'><span  dir='rtl' id='lbu_7540' bu_id='7540'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم اللغة الإنجليزية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3495);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7541'><span  dir='rtl' id='lbu_7541' bu_id='7541'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3496);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7542'><span  dir='rtl' id='lbu_7542' bu_id='7542'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الكيمياء &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3497);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7543'><span  dir='rtl' id='lbu_7543' bu_id='7543'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم الجغرافيا &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3498);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7544'><span  dir='rtl' id='lbu_7544' bu_id='7544'>برنامج دبلوم التأهيل التربوي للمرحلة الثانوية - تعليم التاريخ &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3499);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7545'><span  dir='rtl' id='lbu_7545' bu_id='7545'>برنامج دبلوم التأهيل التربوي للمرحلة الأساسية العليا - تعليم التكنولوجيا &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3158);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7546'><span  dir='rtl' id='lbu_7546' bu_id='7546'>برنامج دبلوم التأهيل التربوي للمرحلة الأساسية العليا - تعليم العلوم &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3159);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7547'><span  dir='rtl' id='lbu_7547' bu_id='7547'>برنامج دبلوم التأهيل التربوي للمرحلة الأساسية العليا - تعليم الاجتماعيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3160);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8893'><span  dir='rtl' id='lbu_8893' bu_id='8893'>برنامج بكالوريوس تعليم اللغة الإنجليزية كلغة أجنبية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5288);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8933'><span  dir='rtl' id='lbu_8933' bu_id='8933'>برنامج دبلوم التأهيل التربوي - تعليم اللغة الإنجليزية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3668);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8934'><span  dir='rtl' id='lbu_8934' bu_id='8934'>برنامج دبلوم التأهيل التربوي - تعليم العلوم &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3669);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8935'><span  dir='rtl' id='lbu_8935' bu_id='8935'>برنامج دبلوم التأهيل التربوي - تعليم اللغة العربية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3670);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8936'><span  dir='rtl' id='lbu_8936' bu_id='8936'>برنامج دبلوم التأهيل التربوي - تعليم الرياضيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3671);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8937'><span  dir='rtl' id='lbu_8937' bu_id='8937'>برنامج دبلوم التأهيل التربوي - تعليم الاجتماعيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3672);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='9354'><span  dir='rtl' id='lbu_9354' bu_id='9354'>دائرة التربية الرياضية &nbsp;</span>&nbsp;<ul><li id='7992'><span  dir='rtl' id='lbu_7992' bu_id='7992'>برنامج بكالوريوس التربية الرياضية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5051);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(7992,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li></ul></li><li id='6791'><span  dir='rtl' id='lbu_6791' bu_id='6791'>برنامج التعليم التعاوني &nbsp;</span>&nbsp;</li><li id='7253'><span  dir='rtl' id='lbu_7253' bu_id='7253'>كلية الهندسة والتكنولوجيا &nbsp;</span>&nbsp;<ul><li id='124'><span  dir='rtl' id='lbu_124' bu_id='124'>دائرة الهندسة المعمارية &nbsp;</span>&nbsp;<ul><li id='276'><span  dir='rtl' id='lbu_276' bu_id='276'>برنامج بكالوريوس الهندسة المعمارية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5311);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(276,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='8295'><span  dir='rtl' id='lbu_8295' bu_id='8295'>برنامج بكالوريوس هندسة التخطيط والتصميم الحضري &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5312);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(8295,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='125'><span  dir='rtl' id='lbu_125' bu_id='125'>دائرة الهندسة المدنية والبيئية &nbsp;</span>&nbsp;<ul><li id='277'><span  dir='rtl' id='lbu_277' bu_id='277'>برنامج بكالوريوس الهندسة المدنية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5313);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(277,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='11860'><span  dir='rtl' id='lbu_11860' bu_id='11860'>برنامج بكالوريوس الهندسة البيئية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5314);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='12779'><span  dir='rtl' id='lbu_12779' bu_id='12779'>برنامج ماجستير الهندسة المدنية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5071);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='131'><span  dir='rtl' id='lbu_131' bu_id='131'>دائرة الهندسة الميكانيكية والميكاترونكس &nbsp;</span>&nbsp;<ul><li id='281'><span  dir='rtl' id='lbu_281' bu_id='281'>برنامج بكالوريوس الهندسة الميكانيكية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5651);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(281,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='2225'><span  dir='rtl' id='lbu_2225' bu_id='2225'>برنامج بكالوريوس هندسة الميكاترونيكس &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5316);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(2225,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='13939'><span  dir='rtl' id='lbu_13939' bu_id='13939'>برنامج ماجستير الهندسة الميكانيكية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5731);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='605'><span  dir='rtl' id='lbu_605' bu_id='605'>دائرة علم الحاسوب &nbsp;</span>&nbsp;<ul><li id='273'><span  dir='rtl' id='lbu_273' bu_id='273'>برنامج بكالوريوس علم الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5322);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(273,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='301'><span  dir='rtl' id='lbu_301' bu_id='301'>برنامج فرعي علم الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2881);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='761'><span  dir='rtl' id='lbu_761' bu_id='761'>برنامج ماجستير هندسة التخطيط العمراني وعمارة المشهد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(1493);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='4188'><span  dir='rtl' id='lbu_4188' bu_id='4188'>برنامج ماجستير الحوسبة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3708);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='7213'><span  dir='rtl' id='lbu_7213' bu_id='7213'>برنامج التعليم التعاوني &nbsp;</span>&nbsp;</li><li id='7261'><span  dir='rtl' id='lbu_7261' bu_id='7261'>دائرة الهندسة الكهربائية وهندسة الحاسوب &nbsp;</span>&nbsp;<ul><li id='278'><span  dir='rtl' id='lbu_278' bu_id='278'>برنامج بكالوريوس الهندسة الكهربائية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5317);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(278,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='331'><span  dir='rtl' id='lbu_331' bu_id='331'>برنامج بكالوريوس هندسة أنظمة الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3399);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(331,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='10759'><span  dir='rtl' id='lbu_10759' bu_id='10759'>برنامج بكالوريوس هندسة الحاسوب &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5318);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='7633'><span  dir='rtl' id='lbu_7633' bu_id='7633'>برنامج ماجستير هندسة الإستدامة في الإنتاج &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3207);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(7633,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='7953'><span  dir='rtl' id='lbu_7953' bu_id='7953'>برنامج ماجستير هندسة البرمجيات &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3267);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(7953,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='8555'><span  dir='rtl' id='lbu_8555' bu_id='8555'>برنامج ماجستير الهندسة الكهربائية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3471);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='10516'><span  dir='rtl' id='lbu_10516' bu_id='10516'>برنامج القيادة والمواطنة الفاعلة &nbsp;</span>&nbsp;</li><li id='10568'><span  dir='rtl' id='lbu_10568' bu_id='10568'>كلية الفنون والموسيقى والتصميم &nbsp;</span>&nbsp;<ul><li id='9193'><span  dir='rtl' id='lbu_9193' bu_id='9193'>برنامج بكالوريوس الموسيقى العربية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5291);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10276'><span  dir='rtl' id='lbu_10276' bu_id='10276'>برنامج بكالوريوس الفنون البصرية المعاصرة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5319);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10475'><span  dir='rtl' id='lbu_10475' bu_id='10475'>برنامج فرعي الموسيقى العربية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5292);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='11699'><span  dir='rtl' id='lbu_11699' bu_id='11699'>برنامج بكالوريوس التصميم &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5320);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='103'><span  dir='rtl' id='lbu_103' bu_id='103'>كلية الآداب &nbsp;</span>&nbsp;<ul><li id='8715'><span  dir='rtl' id='lbu_8715' bu_id='8715'>برنامج ماجستير الترجمة ثلاثي اللغة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3608);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10275'><span  dir='rtl' id='lbu_10275' bu_id='10275'>برنامج الاكاديمية الدولية للفنون - فلسطين &nbsp;</span>&nbsp;</li><li id='102'><span  dir='rtl' id='lbu_102' bu_id='102'>دائرة اللغة العربية وآدابها &nbsp;</span>&nbsp;<ul><li id='269'><span  dir='rtl' id='lbu_269' bu_id='269'>برنامج بكالوريوس اللغة العربية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5231);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(269,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='297'><span  dir='rtl' id='lbu_297' bu_id='297'>برنامج فرعي اللغة العربية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(131);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='5728'><span  dir='rtl' id='lbu_5728' bu_id='5728'>برنامج ماجستير اللغة العربية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4593);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(5728,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='105'><span  dir='rtl' id='lbu_105' bu_id='105'>برنامج ماجستير الدراسات العربية المعاصرة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2778);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='118'><span  dir='rtl' id='lbu_118' bu_id='118'>دائرة الفلسفة والدراسات الثقافية &nbsp;</span>&nbsp;<ul><li id='329'><span  dir='rtl' id='lbu_329' bu_id='329'>برنامج الدراسات الثقافية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(329,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='330'><span  dir='rtl' id='lbu_330' bu_id='330'>برنامج فرعي الفلسفة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2882);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='129'><span  dir='rtl' id='lbu_129' bu_id='129'>دائرة اللغات والترجمة &nbsp;</span>&nbsp;<ul><li id='333'><span  dir='rtl' id='lbu_333' bu_id='333'>برنامج اللغة الانجليزية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(333,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='336'><span  dir='rtl' id='lbu_336' bu_id='336'>برنامج اللغة الالمانية &nbsp;</span>&nbsp;</li><li id='337'><span  dir='rtl' id='lbu_337' bu_id='337'>برنامج اللغة العبرية &nbsp;</span>&nbsp;</li><li id='338'><span  dir='rtl' id='lbu_338' bu_id='338'>برنامج اللغة الايطالية &nbsp;</span>&nbsp;</li><li id='340'><span  dir='rtl' id='lbu_340' bu_id='340'>برنامج فرعي الترجمة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2967);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='1621'><span  dir='rtl' id='lbu_1621' bu_id='1621'>برنامج اللغة الإسبانية &nbsp;</span>&nbsp;</li><li id='7653'><span  dir='rtl' id='lbu_7653' bu_id='7653'>برنامج اللغة التركية &nbsp;</span>&nbsp;</li><li id='7993'><span  dir='rtl' id='lbu_7993' bu_id='7993'>برنامج بكالوريوس اللغة الالمانية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5211);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='8136'><span  dir='rtl' id='lbu_8136' bu_id='8136'>برنامج فرعي اللغة الألمانية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3334);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9715'><span  dir='rtl' id='lbu_9715' bu_id='9715'>برنامج اللغة الصينية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(9715,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='13880'><span  dir='rtl' id='lbu_13880' bu_id='13880'>برنامج بكالوريوس ترجمة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5691);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(13880,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='130'><span  dir='rtl' id='lbu_130' bu_id='130'>دائرة اللغة الإنجليزية وآدابها &nbsp;</span>&nbsp;<ul><li id='280'><span  dir='rtl' id='lbu_280' bu_id='280'>برنامج بكالوريوس اللغة الإنجليزية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5232);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(280,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='305'><span  dir='rtl' id='lbu_305' bu_id='305'>برنامج فرعي اللغة الإنجليزية وآدابها &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2213);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='341'><span  dir='rtl' id='lbu_341' bu_id='341'>برنامج بكالوريوس رئيسي اللغة الانجليزية وآدابها / فرعي الترجمة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5233);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='136'><span  dir='rtl' id='lbu_136' bu_id='136'>دائرة الجغرافية &nbsp;</span>&nbsp;<ul><li id='282'><span  dir='rtl' id='lbu_282' bu_id='282'>برنامج الجغرافية &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(282,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='372'><span  dir='rtl' id='lbu_372' bu_id='372'>برنامج بكالوريوس رئيسي الجغرافية / فرعي التاريخ &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5236);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='373'><span  dir='rtl' id='lbu_373' bu_id='373'>برنامج بكالوريوس رئيسي الجغرافية / فرعي العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5237);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='374'><span  dir='rtl' id='lbu_374' bu_id='374'>برنامج فرعي الجغرافية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4448);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='602'><span  dir='rtl' id='lbu_602' bu_id='602'>برنامج ماجستير الجغرافية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2673);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(602,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='10495'><span  dir='rtl' id='lbu_10495' bu_id='10495'>برنامج بكالوريوس رئيسي الجغرافية / فرعي الاقتصاد &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5239);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10496'><span  dir='rtl' id='lbu_10496' bu_id='10496'>برنامج بكالوريوس رئيسي الجغرافية / فرعي علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5240);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='10497'><span  dir='rtl' id='lbu_10497' bu_id='10497'>برنامج بكالوريوس رئيسي الجغرافية / فرعي العلاقات الدولية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5241);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='148'><span  dir='rtl' id='lbu_148' bu_id='148'>دائرة التاريخ والآثار &nbsp;</span>&nbsp;<ul><li id='162'><span  dir='rtl' id='lbu_162' bu_id='162'>برنامج ماجستير التاريخ العربي الإسلامي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2693);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='283'><span  dir='rtl' id='lbu_283' bu_id='283'>برنامج بكالوريوس رئيسي التاريخ / فرعي الآثار الفلسطينية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5355);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='347'><span  dir='rtl' id='lbu_347' bu_id='347'>برنامج الآثار الفلسطينية &nbsp;</span>&nbsp;</li><li id='348'><span  dir='rtl' id='lbu_348' bu_id='348'>برنامج التاريخ &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(348,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='375'><span  dir='rtl' id='lbu_375' bu_id='375'>برنامج بكالوريوس رئيسي التاريخ / فرعي العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5356);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='376'><span  dir='rtl' id='lbu_376' bu_id='376'>برنامج فرعي التاريخ &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3728);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='377'><span  dir='rtl' id='lbu_377' bu_id='377'>برنامج فرعي الأثار الفلسطينية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3400);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='160'><span  dir='rtl' id='lbu_160' bu_id='160'>دائرة الإعلام &nbsp;</span>&nbsp;<ul><li id='285'><span  dir='rtl' id='lbu_285' bu_id='285'>برنامج بكالوريوس رئيسي الاعلام - صحافة / فرعي العلوم السياسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3415);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='355'><span  dir='rtl' id='lbu_355' bu_id='355'>برنامج الصحافة &nbsp;</span>&nbsp;</li><li id='356'><span  dir='rtl' id='lbu_356' bu_id='356'>برنامج الإعلام &nbsp;</span>&nbsp;</li><li id='357'><span  dir='rtl' id='lbu_357' bu_id='357'>برنامج الإذاعة &nbsp;</span>&nbsp;</li><li id='358'><span  dir='rtl' id='lbu_358' bu_id='358'>برنامج التلفزة &nbsp;</span>&nbsp;</li><li id='378'><span  dir='rtl' id='lbu_378' bu_id='378'>برنامج بكالوريوس رئيسي الاعلام - صحافة / فرعي علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3416);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='379'><span  dir='rtl' id='lbu_379' bu_id='379'>برنامج بكالوريوس رئيسي الاعلام - إذاعة / فرعي التلفزة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3417);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='9094'><span  dir='rtl' id='lbu_9094' bu_id='9094'>برنامج بكالوريوس الإعلام &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5171);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(9094,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='166'><span  dir='rtl' id='lbu_166' bu_id='166'>برنامج الدراسات العربية والفلسطينية &nbsp;</span>&nbsp;</li><li id='201'><span  dir='rtl' id='lbu_201' bu_id='201'>برنامج دراسات المرأة &nbsp;</span>&nbsp;<ul><li id='440'><span  dir='rtl' id='lbu_440' bu_id='440'>برنامج فرعي دراسات المرأة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4592);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li><li id='204'><span  dir='rtl' id='lbu_204' bu_id='204'>برنامج الفنون الجميلة &nbsp;</span>&nbsp;<ul><li id='370'><span  dir='rtl' id='lbu_370' bu_id='370'>برنامج الفنون الجميلة &nbsp;</span>&nbsp;</li><li id='371'><span  dir='rtl' id='lbu_371' bu_id='371'>برنامج الفنون الجميلة &nbsp;</span>&nbsp;</li></ul></li><li id='702'><span  dir='rtl' id='lbu_702' bu_id='702'>دائرة اللغة الفرنسية &nbsp;</span>&nbsp;<ul><li id='279'><span  dir='rtl' id='lbu_279' bu_id='279'>برنامج بكالوريوس اللغة الفرنسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5357);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='307'><span  dir='rtl' id='lbu_307' bu_id='307'>برنامج فرعي اللغة الفرنسية &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(4270);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='334'><span  dir='rtl' id='lbu_334' bu_id='334'>برنامج تعليم اللغة الفرنسية &nbsp;</span>&nbsp;</li><li id='339'><span  dir='rtl' id='lbu_339' bu_id='339'>برنامج ترجمة فرنسية تحريرية وفورية &nbsp;</span>&nbsp;</li></ul></li><li id='6629'><span  dir='rtl' id='lbu_6629' bu_id='6629'>دائرة العلوم الإجتماعية والسلوكية &nbsp;</span>&nbsp;<ul><li id='165'><span  dir='rtl' id='lbu_165' bu_id='165'>برنامج ماجستير علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5371);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='288'><span  dir='rtl' id='lbu_288' bu_id='288'>برنامج بكالوريوس علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5351);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='309'><span  dir='rtl' id='lbu_309' bu_id='309'>برنامج فرعي علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5354);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='367'><span  dir='rtl' id='lbu_367' bu_id='367'>برنامج علم الإنسان &nbsp;</span>&nbsp;</li><li id='369'><span  dir='rtl' id='lbu_369' bu_id='369'>برنامج العمل الإجتماعي &nbsp;</span>&nbsp;</li><li id='380'><span  dir='rtl' id='lbu_380' bu_id='380'>برنامج بكالوريوس رئيسي علم النفس / فرعي علم الاجتماع &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5358);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='382'><span  dir='rtl' id='lbu_382' bu_id='382'>برنامج فرعي علم النفس &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(3857);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='2325'><span  dir='rtl' id='lbu_2325' bu_id='2325'>برنامج ماجستير علم النفس المجتمعي &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(2033);'><b>الخطة</b></a>&nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(2325,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='2788'><span  dir='rtl' id='lbu_2788' bu_id='2788'>برنامج علم النفس &nbsp;<a href='#' style='font-size: 9; color: blue' onClick='selectBuCourses(2788,true,0);'><b>المساقات</b></a>&nbsp;</span>&nbsp;</li><li id='9177'><span  dir='rtl' id='lbu_9177' bu_id='9177'>برنامج بكالوريوس رئيسي علم النفس / فرعي دراسات المرأة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5359);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='13099'><span  dir='rtl' id='lbu_13099' bu_id='13099'>برنامج بكالوريوس رئيسي علم الاجتماع / فرعي علم النفس &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5352);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li><li id='13100'><span  dir='rtl' id='lbu_13100' bu_id='13100'>برنامج بكالوريوس رئيسي علم الاجتماع / فرعي الادارة العامة &nbsp;<a href='#' style='font-size: 9; color: blue; cursor:hand' onClick='showPlan(5353);'><b>الخطة</b></a>&nbsp;</span>&nbsp;</li></ul></li></ul></li></ul></li></ul> </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="center-div" style="padding:2px;">
+    <table cellspacing="0" cellpadding="0" width="100%" dir="rtl">
+    	<tr bgcolor="#d5ddc6">
+    		<td title="6106662"><b>نظام التسجيل</b></td>
+
+    	</tr>
+
+    </table>
+
+    <div id='classes' style="display:none; padding-top:5px;">
+        <table id="classesTable" cellspacing="0" cellpadding="2" width="100%" dir="rtl">
+            <tr class="wbr">
+            	<td class="nv b" id='cls_course' style='background-color: #d5ddc6; border: 1px black solid; border-left: none'>Course</td>
+            	<td id='cls_course_name_ar' style='background-color: #d5ddc6; border: 1px black solid; border-left:none; border-right:none;'>Name AR</td>
+            	<td class="nv" id='cls_course_name_en' dir="ltr" style='background-color: #d5ddc6; border: 1px black solid; border-left:none; border-right: none'>Name EN</td>
+
+            </tr>
+            <tr>
+                <td colspan=4 style="background:#ffffff">
+                    <div id="classList"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table cellspacing="3" cellpadding="4" class="wbr" width="100%">
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+    <div id="crsLabel" dir="rtl" style="margin:1em; padding:1em; text-align:center; width:95%; display:none;"></div>
+
+    <div id="planDiv" style="display:none;" dir="rtl"></div>
+
+    <div id='coursesTable' style="display:none;">
+        <table cellspacing="0" cellpadding="4" width="100%" dir="rtl">
+            <tr class="wbr">
+            	<td class="b" id='crsLst_unit_name' style='background-color: #d5ddc6; border: 1px black solid; border-left: none'>مساقات</td>
+            </tr>
+            <tr>
+                <td>
+            	   <div id='coursesList'><table id="innerCoursesTable" width="100%"></table></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+            <!-- Content Content End -->
+        </div>
+
+            <div class="footer_container">
+                <hr size="1" color="#ababab"/>
+
+<div dir='rtl'>
+    <a class="hidden-xs" target="_blank" rel="noreferrer" href="https://www.birzeit.edu/">
+        <img src='bzu_logo.png' style='height: 36px;margin: 2px 5px;float: right;'>
+    </a>
+
+    <div style='float: right; padding: 2px 10px; line-height: 20px;'>
+        &#169; 2002 - 2020
+        <a href="https://www.birzeit.edu/" target="_blank" rel="noreferrer">
+            جامعة بيرزيت
+        </a>.
+        جميع الحقوق محفوظة
+        <br>
+        <div style="display: inline-block;">
+            <img src="mail.png" alt="بريد إلكتروني" />
+            <a href="mailto:help@ritaj.ps">help@ritaj.ps</a>, Support: <a href="mailto:helpdesk@birzeit.edu">helpdesk@birzeit.edu</a>
+        </div>
+        <div style="display: inline-block;">
+            <img src="tel.png" alt="هاتف" />
+            <span dir="ltr">+97(0/2)-2-2982000</span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="medical.jpg" alt="عيادة الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">العيادة: الأرضي 022982151 &nbsp; الخلوي 0592982001</font></span>
+        </div>
+		<div style="display: inline-block;">
+            &nbsp;&nbsp;
+        </div>
+        <div style="display: inline-block;">
+            <img src="guard.jpg" alt="حرس الجامعة" style="width:15px;height:15px;"/>
+            <span dir="rtl"><font color="red">الحرس: الأرضي 022982919 &nbsp; الخلوي 0599281200</font></span>
+        </div>
+    </div>
+    <a  target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=bzu.phone.app">
+        <img src='android.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+    <a  target="_blank" rel="noreferrer" href="https://itunes.apple.com/us/app/bzuapp/id1035525240?ls=1&mt=8">
+        <img src='ios.png' style='height: 36px;margin: 2px 5px;float: left;'>
+    </a>
+</div>
+            </div>
+
+    </body>
+</html>
